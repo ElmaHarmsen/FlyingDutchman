@@ -31,3 +31,74 @@ h1 {
   font-size: 32px;
   color: var(--darkblue);
 }
+
+.navbar { /* Nav Bar */
+  width: 120px;
+  height: 100%;
+  background-color: #EFF1F3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  float: left;
+}
+
+.navText{ /* The text style in the nav bar */
+  font-family: "poppins-regular";
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.navLogIn { /* The class for the log in button, since it is placed at the bottom of the nav bar */
+  font-family: "poppins-regular";
+  font-size: 16px;
+  text-align: center;
+  position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+}
+
+.navSymbol { /* The symbols in the nav bar */ 
+  padding-top: 20px;
+}
+
+.titleCategory { /*The big title that tells what the page is about (i.e., "Today's Offers") */
+margin-left: 160px;
+
+}
+
+.ButtonItem { /* The class for the whole button */
+background-color: #EFF1F3;
+width: 180px;
+height: 280px;
+margin-left: 160px;
+border-radius: 10px;
+}
+
+.ButtonHeadline { /* The text that the product names are written in, such as "Heineken". Also, the prize should be written in this text. This should be connected to a database with the different beverages in some way */
+  font-family: "poppins-regular";
+  font-size: 16px;
+  text-align: center;
+}
+
+.ButtonBodyText { /* This is the styling of the text that describes every product (i.e., alc %). This should be connected to a database */
+  font-family: "poppins-light";
+  font-size: 14px;
+  text-align: center;
+}
+
+.flag { /* This is the flag in the right top of the item buttons */
+  
+}
+
+.infobutton { /* The small info button in the item box */
+
+}
+
+.AddButton { /* The button for adding an item into the order */
+background-color: #2D598B;
+
+}
