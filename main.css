@@ -33,8 +33,8 @@ h1 {
 }
 
 .navbar { /* Nav Bar */
-  width: 120px;
-  height: 100%;
+  width: 80px;
+  height: 768px;
   background-color: #EFF1F3;
   position: fixed;
   top: 0;
@@ -66,7 +66,7 @@ h1 {
 }
 
 .titleCategory { /*The big title that tells what the page is about (i.e., "Today's Offers") */
-margin-left: 160px;
+margin-left: 100px;
 
 }
 
@@ -74,7 +74,7 @@ margin-left: 160px;
 background-color: #EFF1F3;
 width: 180px;
 height: 280px;
-margin-left: 160px;
+margin-left: 100px;
 border-radius: 10px;
 }
 
@@ -100,5 +100,27 @@ border-radius: 10px;
 
 .AddButton { /* The button for adding an item into the order */
 background-color: #2D598B;
+
+}
+
+.OrderBox {
+  background-color: #EFF1F3;
+  height: 668px;
+  width: 300px;
+  position: absolute;
+  top: 100px;
+margin-right: 10px;  
+position:absolute; 
+left:700px; 
+border-radius: 10px;
+border-bottom-left-radius: 0%;
+border-bottom-right-radius: 0%;
+}
+
+.YourOrderText{
+  margin-left: 690px;
+position: absolute;
+  
+  top: 10px;
 
 }
