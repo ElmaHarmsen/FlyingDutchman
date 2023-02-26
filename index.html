@@ -78,6 +78,10 @@
 
   <div class="YourOrderText">
     <h1>Your Order</h1>
+      <div class="Undo-Redo">
+        <img src="assets/undo_FILL0_wght400_GRAD0_opsz48.svg" alt="Undo">
+        <img src="assets/redo_FILL0_wght400_GRAD0_opsz48.svg" alt="Redo">
+      </div>
   </div>
 
   <!-- The Item Buttons-->
@@ -89,60 +93,275 @@
     </div>
 
     <div class="ButtonHeadline">
-      <p> "NAME" </p>
+      <p> NAME </p>
     </div>
 
     <div class="ButtonBodyText">
-      <p>"TYPE OF BEVERAGE"</p>
-      <p>"TYPE OF B/W/D"</p> <!-- B = Beer, W = Whine, D = Drink --> 
-      <p>"ALK %""</p>
+      <p>TYPE OF BEVERAGE</p>
+      <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+      <p>ALK %</p>
     </div>
 
     <div class="ButtonHeadline">
-      <p>"__ SEK"</p>
+      <p>__ SEK</p>
     </div>
 
   </div>
 
   <!-- Order Box  (Here I have only created the divs!)-->
 
-  <div class="OrderBox">
+  <div class="OrderBox" style="overflow: scroll;">
+    <div class="Item">
+      <button id="remove_item">
+        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
+      </button>
+      <div class="Details">
+        <p id="name_id">NAME - ALK%</p>
+        <p id="serving_size">Type of B/W/D</p>
+        <p id="item_price">__ SEK</p>
+      </div>
+
+      <div class="order_controls">
+        <p id="total_item_price">__ SEK</p>
+
+        <button id="decrease_item_qty">
+          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
+        </button>
+
+        <span id="item_qty">X</span>
+
+        <button id="increase_item_qty">
+          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
+        </button>
+      </div>
+    </div>
+    <hr>
+    <div class="Item">
+      <button id="remove_item">
+        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
+      </button>
+      <div class="Details">
+        <p id="name_id">NAME - ALK%</p>
+        <p id="serving_size">Type of B/W/D</p>
+        <p id="item_price">__ SEK</p>
+      </div>
+
+      <div class="order_controls">
+        <p id="total_item_price">__ SEK</p>
+
+        <button id="decrease_item_qty">
+          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
+        </button>
+
+        <span id="item_qty">X</span>
+
+        <button id="increase_item_qty">
+          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
+        </button>
+      </div>
+    </div>
+    <hr>
+    <div class="Item">
+      <button id="remove_item">
+        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
+      </button>
+      <div class="Details">
+        <p id="name_id">NAME - ALK%</p>
+        <p id="serving_size">Type of B/W/D</p>
+        <p id="item_price">__ SEK</p>
+      </div>
+
+      <div class="order_controls">
+        <p id="total_item_price">__ SEK</p>
+
+        <button id="decrease_item_qty">
+          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
+        </button>
+
+        <span id="item_qty">X</span>
+
+        <button id="increase_item_qty">
+          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
+        </button>
+      </div>
+    </div>
+    <hr>
+    <div class="Item">
+      <button id="remove_item">
+        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
+      </button>
+      <div class="Details">
+        <p id="name_id">NAME - ALK%</p>
+        <p id="serving_size">Type of B/W/D</p>
+        <p id="item_price">__ SEK</p>
+      </div>
+
+      <div class="order_controls">
+        <p id="total_item_price">__ SEK</p>
+
+        <button id="decrease_item_qty">
+          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
+        </button>
+
+        <span id="item_qty">X</span>
+
+        <button id="increase_item_qty">
+          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
+        </button>
+      </div>
+    </div>
+    <hr>
+    <div class="Item">
+      <button id="remove_item">
+        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
+      </button>
+      <div class="Details">
+        <p id="name_id">NAME - ALK%</p>
+        <p id="serving_size">Type of B/W/D</p>
+        <p id="item_price">__ SEK</p>
+      </div>
+
+      <div class="order_controls">
+        <p id="total_item_price">__ SEK</p>
+
+        <button id="decrease_item_qty">
+          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
+        </button>
+
+        <span id="item_qty">X</span>
+
+        <button id="increase_item_qty">
+          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
+        </button>
+      </div>
+    </div>
+    <hr>
+    <div class="Item">
+      <button id="remove_item">
+        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
+      </button>
+      <div class="Details">
+        <p id="name_id">NAME - ALK%</p>
+        <p id="serving_size">Type of B/W/D</p>
+        <p id="item_price">__ SEK</p>
+      </div>
+
+      <div class="order_controls">
+        <p id="total_item_price">__ SEK</p>
+
+        <button id="decrease_item_qty">
+          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
+        </button>
+
+        <span id="item_qty">X</span>
+
+        <button id="increase_item_qty">
+          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
+        </button>
+      </div>
+    </div>
+    <hr>
+    <div class="Item">
+      <button id="remove_item">
+        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
+      </button>
+      <div class="Details">
+        <p id="name_id">NAME - ALK%</p>
+        <p id="serving_size">Type of B/W/D</p>
+        <p id="item_price">__ SEK</p>
+      </div>
+
+      <div class="order_controls">
+        <p id="total_item_price">__ SEK</p>
+
+        <button id="decrease_item_qty">
+          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
+        </button>
+
+        <span id="item_qty">X</span>
+
+        <button id="increase_item_qty">
+          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
+        </button>
+      </div>
+    </div>
+    <hr>
+    <div class="Item">
+      <button id="remove_item">
+        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
+      </button>
+      <div class="Details">
+        <p id="name_id">NAME - ALK%</p>
+        <p id="serving_size">Type of B/W/D</p>
+        <p id="item_price">__ SEK</p>
+      </div>
+
+      <div class="order_controls">
+        <p id="total_item_price">__ SEK</p>
+
+        <button id="decrease_item_qty">
+          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
+        </button>
+
+        <span id="item_qty">X</span>
+
+        <button id="increase_item_qty">
+          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
+        </button>
+      </div>
+    </div>
+    <hr>
+    <div class="Item">
+      <button id="remove_item">
+        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
+      </button>
+      <div class="Details">
+        <p id="name_id">NAME - ALK%</p>
+        <p id="serving_size">Type of B/W/D</p>
+        <p id="item_price">__ SEK</p>
+      </div>
+
+      <div class="order_controls">
+        <p id="total_item_price">__ SEK</p>
+
+        <button id="decrease_item_qty">
+          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
+        </button>
+
+        <span id="item_qty">X</span>
+
+        <button id="increase_item_qty">
+          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
+        </button>
+      </div>
+    </div>
+    <hr>
+    <div class="Item">
+      <button id="remove_item">
+        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
+      </button>
+      <div class="Details">
+        <p id="name_id">NAME - ALK%</p>
+        <p id="serving_size">Type of B/W/D</p>
+        <p id="item_price">__ SEK</p>
+      </div>
+
+      <div class="order_controls">
+        <p id="total_item_price">__ SEK</p>
+
+        <button id="decrease_item_qty">
+          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
+        </button>
+
+        <span id="item_qty">X</span>
+
+        <button id="increase_item_qty">
+          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
+        </button>
+      </div>
+    </div>
+    <hr>
     
-  </div>
-
-  <div class="OrderLine">
-    <div class="ItemNameOrder">
-
-    </div>
-
-    <div class="DescriptionOrder">
-
-    </div>
-
-    <div class="PrizeOrder">
-
-    </div>
-
-    <div class="RemoveItemOrder">
-
-    </div>
-
-    <div class="TotalPrizeOrder">
-
-    </div>
-
-    <div class="Add/RemoveBox">
-      <div class="PlusSign">
-
-      </div>
-
-      <div class="SubtractionSign">
-        
-      </div>
-    </div>
-
-
-
   </div>
 
 </body>

@@ -19,11 +19,15 @@
   src: url("./assets/Poppins-Bold.ttf");
 }
 
+p {
+  font-family: "poppins-regular";
+}
 :root {
   --blue: #2D598B;
   --darkblue: #191923;
   --white: #FFFFFF;
   --offwhite: #EFF1F3;
+  --mildgray: #D9D9D9;
 }
 
 h1 {
@@ -35,7 +39,7 @@ h1 {
 .navbar { /* Nav Bar */
   width: 80px;
   height: 768px;
-  background-color: #EFF1F3;
+  background-color: var(--offwhite);
   position: fixed;
   top: 0;
   left: 0;
@@ -71,7 +75,7 @@ margin-left: 100px;
 }
 
 .ButtonItem { /* The class for the whole button */
-background-color: #EFF1F3;
+background-color: var(--offwhite);
 width: 180px;
 height: 280px;
 margin-left: 100px;
@@ -99,28 +103,132 @@ border-radius: 10px;
 }
 
 .AddButton { /* The button for adding an item into the order */
-background-color: #2D598B;
+background-color: var(--blue);
 
 }
 
 .OrderBox {
-  background-color: #EFF1F3;
-  height: 668px;
+  background-color: var(--offwhite);
+  height: 670px;
   width: 300px;
   position: absolute;
-  top: 100px;
+  top: 91px;
 margin-right: 10px;  
 position:absolute; 
 left:700px; 
 border-radius: 10px;
-border-bottom-left-radius: 0%;
-border-bottom-right-radius: 0%;
 }
 
+.Undo-Redo{
+  position: absolute;
+  right: -120px;
+  top: 21px;
+   
+}
+.Undo-Redo img{
+  width: 38px;
+  height: 38px;
+  margin: 5px;
+}
 .YourOrderText{
   margin-left: 690px;
-position: absolute;
+  position: absolute;
   
-  top: 10px;
+  top: 0px;
 
+}
+.Item{
+  margin-left: 25px;
+  position: relative;
+}
+
+.OrderBox button{
+  border: none;
+}
+.order_controls {
+  display: flex;
+  align-items: center;
+  float: right;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
+#name_id{
+  font-family: "poppins-semibold";
+}
+
+#serving_size{
+  margin-top: -10px;
+  font-size: 12px;
+}
+
+#item_price{
+  font-family: "poppins-bold";
+  margin-top: -5px;
+  font-size: 14px;
+}
+
+#remove_item, #remove_item img{
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  top: -5px;
+  right: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#decrease_item_qty, #increase_item_qty{
+  background-color: var(--mildgray);
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#decrease_item_qty{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+#increase_item_qty{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#decrease_item_qty img, #increase_item_qty img{
+  height: 20px;
+  width: 20px;
+}
+
+#item_qty{
+  background-color: var(--white);
+  height: 25px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#total_item_price{
+  font-family: "poppins-bold";
+  font-size: 18px;
+  position: absolute;
+  top: 40px;
+  right: 25px;
+}
+
+#item_qty{
+  padding-left: 10px;
+  padding-right: 10px;
+  width: auto;
+}
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--mildgray);
+  background-color: var(--offwhite);
+  height: 1px;
+  width: 100%;
+}
+span{
+  font-family: "poppins-regular";
 }
