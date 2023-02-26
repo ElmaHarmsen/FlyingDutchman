@@ -16,9 +16,11 @@ function update_view(currentLanguage) {
 //the first eventListener listens when the DOM content gets loaded.
 //the second eventListener listens for a language change, and passes through a parameter that becomes the new language.
 //update_view looks for details about this language. 
+//
 document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener('languageChange', (newLanguage) => {
     update_view(newLanguage.detail.language);
+    localStorage.setItem("setLanguage", newLanguage.detail.language);
   });
   
 //this querySelectorAll finds all matches with the classname languageButton, which returns an array.
@@ -38,5 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }))
     })
   })
-  update_view("en");
+
+//(ternary operator) if getItem from the localStorage is existing, we read the item setLanguage from the localStorage, 
+//and if it does not exist we use the default value which is sv. 
+  update_view(localStorage.getItem("setLanguage") ? localStorage.getItem("setLanguage") : "sv");
 })
