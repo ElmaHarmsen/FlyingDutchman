@@ -1,38 +1,16 @@
-// const dictionaryList = {
-//   page_title: {
-//     en: "The Flying Dutchman",
-//     sv: "Den Flygande Holländaren",
-//     nl: "De Vliegende Hollander"
-//   }
-// }
-
-// export default function dictionary(key, language) {
-//   return dictionaryList[key][language];
-// }
-
-var language = "en";
-
-const languageDictionary = {
-  "keys": ["page_title"],
-
-  "en": {
-    "page_title": "The Flying Dutchman"
+//const dictionaryList is one object of multiple individual objects, 
+//each object is a key that represents the text to be displayed in the HTML, and each object contains three languages. 
+//HTML text elements need to always have the exact same id as the key is called (page_title, etc.)
+//HTML buttons need to always have the exact same id as listed here (en, sv and nl).
+const dictionaryList = {
+  page_title: {
+    en: "The Flying Dutchman",
+    sv: "Den Flygande Holländaren",
+    nl: "De Vliegende Hollander"
   },
-  "sv": {
-    "page_title": "Den Flygande Holländaren"
-  },
-  "nl": {
-    "page_title": "De Vliegende Hollander"
+  test: {
+    en: "smth",
+    sv: "något",
+    nl: "iets"
   }
-}
-
-function getLanguage(key) {
-  return languageDictionary[language][key];
-}
-
-function changeLanguage() {
-  if (language === "en") {
-    language = "sv";
-  } else {language = "en"};
-  update_view();
 }
