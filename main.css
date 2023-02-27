@@ -74,12 +74,24 @@ margin-left: 100px;
 
 }
 
+.item_grid{
+  align-content: flex-start; /* Removes gap when using display:flex */
+  background-color: white;
+  width: 600px;
+  height: 667px;
+  margin-left: 98px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+}
 .ButtonItem { /* The class for the whole button */
 background-color: var(--offwhite);
-width: 180px;
 height: 280px;
-margin-left: 100px;
 border-radius: 10px;
+  width: 180px;
+  
 }
 
 .ButtonHeadline { /* The text that the product names are written in, such as "Heineken". Also, the prize should be written in this text. This should be connected to a database with the different beverages in some way */
@@ -108,16 +120,15 @@ background-color: var(--blue);
 }
 
 .OrderBox {
+  overflow: scroll;
   background-color: var(--offwhite);
   height: 670px;
   width: 300px;
   position: absolute;
   top: 91px;
-margin-right: 10px;  
-position:absolute; 
-left:700px; 
-border-radius: 10px;
-}
+  left:700px; 
+  border-radius: 10px;
+  }
 
 .Undo-Redo{
   position: absolute;
@@ -142,15 +153,34 @@ border-radius: 10px;
   position: relative;
 }
 
-.OrderBox button{
+button{
   border: none;
+  background-color: transparent;
 }
-.order_controls {
+.order_controls {/*control buttons for items in orderbox*/
   display: flex;
   align-items: center;
   float: right;
   padding-right: 15px;
   padding-bottom: 15px;
+}
+
+#total_order_price{/*Checkout button*/
+  z-index: 1;
+  border: none;
+  font-family: "poppins-semibold";
+  font-size: 14px;
+  color: var(--white);
+  background-color: var(--blue);
+  height: 50px;
+  width: 220px;
+  position: absolute;
+  margin: auto;
+  transform: translate(735px,-70px);
+
+  border-radius: 10px;
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 #name_id{
@@ -223,11 +253,12 @@ border-radius: 10px;
 }
 
 hr {
+  transform: translateX(-25px);
   border: none;
   border-top: 1px dashed var(--mildgray);
   background-color: var(--offwhite);
   height: 1px;
-  width: 100%;
+  width: 300px;
 }
 span{
   font-family: "poppins-regular";
