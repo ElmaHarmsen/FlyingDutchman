@@ -84,6 +84,7 @@ margin-left: 100px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  overflow-y: scroll;
 
 }
 .ButtonItem { /* The class for the whole button */

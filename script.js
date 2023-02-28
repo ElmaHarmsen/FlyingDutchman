@@ -18,6 +18,7 @@ function update_view(currentLanguage) {
 //update_view looks for details about this language. 
 //
 document.addEventListener("DOMContentLoaded", () => {
+
   document.addEventListener('languageChange', (newLanguage) => {
     update_view(newLanguage.detail.language);
     localStorage.setItem("setLanguage", newLanguage.detail.language);
@@ -44,4 +45,36 @@ document.addEventListener("DOMContentLoaded", () => {
 //(ternary operator) if getItem from the localStorage is existing, we read the item setLanguage from the localStorage, 
 //and if it does not exist we use the default value which is sv. 
   update_view(localStorage.getItem("setLanguage") ? localStorage.getItem("setLanguage") : "sv");
+
+  fetch("./beverages.json")
+  .then(rawData => rawData.json())
+  .then(beverageData => {
+    if (beverageData.length) {
+      const beverageElement = document.querySelector('#db_content');
+      beverageData.forEach(beverage => {
+        const beverageContainer = document.createElement("div");
+        beverageContainer.innerHTML = 
+        `
+        <div class="ButtonItem">
+          <div class="flag">
+            <p>🇳🇱</p>
+          </div>
+          <div class="ButtonHeadline">
+            <p>${beverage.name}</p>
+          </div>
+          <div class="ButtonBodyText">
+            <p>TYPE OF BEVERAGE</p>
+            <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+            <p>ALK %</p>
+          </div>
+          <div class="ButtonHeadline">
+            <p>__ SEK</p>
+          </div>
+        </div>
+        `
+        beverageElement.appendChild(beverageContainer);
+      })
+    }    
+  })
+
 })
