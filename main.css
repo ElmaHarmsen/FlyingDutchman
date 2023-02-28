@@ -22,6 +22,10 @@
 p {
   font-family: "poppins-regular";
 }
+
+body {
+  overflow: hidden;
+}
 :root {
   --blue: #2D598B;
   --darkblue: #191923;
@@ -38,7 +42,7 @@ h1 {
 
 .navbar { /* Nav Bar */
   width: 80px;
-  height: 768px;
+  height: 100%;
   background-color: var(--offwhite);
   position: fixed;
   top: 0;
@@ -49,6 +53,7 @@ h1 {
 }
 
 .navText{ /* The text style in the nav bar */
+  
   font-family: "poppins-regular";
   font-size: 16px;
   text-align: center;
@@ -69,6 +74,16 @@ h1 {
   padding-top: 20px;
 }
 
+.navSymbol button{ /* buttons */
+  position: absolute;
+  height: 95px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  transform: translate(0px,-110px);
+
+}
+
 .titleCategory { /*The big title that tells what the page is about (i.e., "Today's Offers") */
 margin-left: 100px;
 
@@ -78,21 +93,48 @@ margin-left: 100px;
   align-content: flex-start; /* Removes gap when using display:flex */
   background-color: white;
   width: 600px;
-  height: 667px;
-  margin-left: 98px;
+  height: 628px;
+  margin-left: 125px;
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 
 }
-.ButtonItem { /* The class for the whole button */
+
+.item-offer { /* The class for the whole button */
+  background-color: var(--offwhite);
+  height: 280px;
+  border-radius: 10px;
+    width: 180px;
+
+}
+.item-beer { /* The class for the whole button */
+  background-color: var(--offwhite);
+  height: 280px;
+  border-radius: 10px;
+    width: 180px;
+  display: none;
+
+}
+.item-wine { /* The class for the whole button */
 background-color: var(--offwhite);
 height: 280px;
 border-radius: 10px;
   width: 180px;
-  
+display: none;
+
+} 
+.item-drink { /* The class for the whole button */
+background-color: var(--offwhite);
+height: 280px;
+border-radius: 10px;
+  width: 180px;
+display: none;
+
 }
+
+
 
 .ButtonHeadline { /* The text that the product names are written in, such as "Heineken". Also, the prize should be written in this text. This should be connected to a database with the different beverages in some way */
   font-family: "poppins-regular";
@@ -123,10 +165,10 @@ background-color: var(--blue);
   overflow: scroll;
   background-color: var(--offwhite);
   height: 670px;
-  width: 300px;
+  width: 280px;
   position: absolute;
   top: 91px;
-  left:700px; 
+  right:30px; 
   border-radius: 10px;
   }
 
@@ -142,18 +184,18 @@ background-color: var(--blue);
   margin: 5px;
 }
 .YourOrderText{
-  margin-left: 690px;
+  right: 140px;
   position: absolute;
   
-  top: 0px;
+  top: 10px;
 
 }
-.Item{
+.order_item{
   margin-left: 25px;
   position: relative;
 }
 
-button{
+ button{
   border: none;
   background-color: transparent;
 }
@@ -165,6 +207,11 @@ button{
   padding-bottom: 15px;
 }
 
+.fill{ /* Extends the orderbox*/
+  height: 60px;
+  width: 40px;
+}
+
 #total_order_price{/*Checkout button*/
   z-index: 1;
   border: none;
@@ -174,9 +221,12 @@ button{
   background-color: var(--blue);
   height: 50px;
   width: 220px;
-  position: absolute;
-  margin: auto;
-  transform: translate(735px,-70px);
+  
+  position: fixed;
+  right: 60px;
+  bottom: calc(100% - 740px);
+
+  border-radius: 10px;
 
   border-radius: 10px;
 
@@ -258,7 +308,7 @@ hr {
   border-top: 1px dashed var(--mildgray);
   background-color: var(--offwhite);
   height: 1px;
-  width: 300px;
+  width: 280px;
 }
 span{
   font-family: "poppins-regular";

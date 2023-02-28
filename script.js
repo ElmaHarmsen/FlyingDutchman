@@ -44,4 +44,92 @@ document.addEventListener("DOMContentLoaded", () => {
 //(ternary operator) if getItem from the localStorage is existing, we read the item setLanguage from the localStorage, 
 //and if it does not exist we use the default value which is sv. 
   update_view(localStorage.getItem("setLanguage") ? localStorage.getItem("setLanguage") : "sv");
+
+  document.querySelectorAll(".nav_button").forEach((navButton) => {
+    navButton.addEventListener("click", (e) => {
+
+    })
+  })
+
+//really ugly code, only for showing the prototype on Wednesday
+  document.querySelector("#beer_button").addEventListener("click", () => {
+    const beerItems = document.getElementsByClassName("item-beer");
+    const wineItems = document.getElementsByClassName("item-wine");
+    const drinkItems = document.getElementsByClassName("item-drink");
+    const offerItems = document.getElementsByClassName("item-offer");
+
+    for (let i = 0; i < beerItems.length; i++) {
+      beerItems[i].style.display = "block";
+    }
+    for (let i = 0; i < wineItems.length; i++) {
+      wineItems[i].style.display = "none";
+    }
+    for (let i = 0; i < drinkItems.length; i++) {
+      drinkItems[i].style.display = "none";
+    }
+    for (let i = 0; i < offerItems.length; i++) {
+      offerItems[i].style.display = "none";
+    }
+    //document.getElementsByClassName("page_header")[0].id = "page_header_beers";
+  });
+  document.querySelector("#wine_button").addEventListener("click", () => {
+    const beerItems = document.getElementsByClassName("item-beer");
+    const wineItems = document.getElementsByClassName("item-wine");
+    const drinkItems = document.getElementsByClassName("item-drink");
+    const offerItems = document.getElementsByClassName("item-offer");
+    
+    for (let i = 0; i < beerItems.length; i++) {
+      beerItems[i].style.display = "none";
+    }
+    for (let i = 0; i < wineItems.length; i++) {
+      wineItems[i].style.display = "block";
+    }
+    for (let i = 0; i < drinkItems.length; i++) {
+      drinkItems[i].style.display = "none";
+    }
+    for (let i = 0; i < offerItems.length; i++) {
+      offerItems[i].style.display = "none";
+    }
+    //document.getElementsByClassName("page_header")[0].id = "page_header_wines";
+  });
+  document.querySelector("#drink_button").addEventListener("click", () => {
+    const beerItems = document.getElementsByClassName("item-beer");
+    const wineItems = document.getElementsByClassName("item-wine");
+    const drinkItems = document.getElementsByClassName("item-drink");
+    const offerItems = document.getElementsByClassName("item-offer");
+
+    for (let i = 0; i < beerItems.length; i++) {
+      beerItems[i].style.display = "none";
+    }
+    for (let i = 0; i < wineItems.length; i++) {
+      wineItems[i].style.display = "none";
+    }
+    for (let i = 0; i < drinkItems.length; i++) {
+      drinkItems[i].style.display = "block";
+    }
+    for (let i = 0; i < offerItems.length; i++) {
+      offerItems[i].style.display = "none";
+    }
+   //document.getElementsByClassName("page_header")[0].id = "page_header_drinks"; 
+  });
+  document.querySelector("#offer_button").addEventListener("click", () => {
+    const beerItems = document.getElementsByClassName("item-beer");
+    const wineItems = document.getElementsByClassName("item-wine");
+    const drinkItems = document.getElementsByClassName("item-drink");
+    const offerItems = document.getElementsByClassName("item-offer");
+
+    for (let i = 0; i < beerItems.length; i++) {
+      beerItems[i].style.display = "none";
+    }
+    for (let i = 0; i < wineItems.length; i++) {
+      wineItems[i].style.display = "none";
+    }
+    for (let i = 0; i < drinkItems.length; i++) {
+      drinkItems[i].style.display = "none";
+    }
+    for (let i = 0; i < offerItems.length; i++) {
+      offerItems[i].style.display = "block";
+    }
+    //document.getElementsByClassName("page_header")[0].id = "page_header_offers"; 
+  });
 })

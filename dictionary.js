@@ -12,5 +12,51 @@ const dictionaryList = {
     en: "smth",
     sv: "något",
     nl: "iets"
+  },
+  page_header_beers: {
+    en: "Beers",
+    sv: "Öler",
+    nl: "Bieren"
+  },
+  page_header_wines: {
+    en: "Wines",
+    sv: "Viner",
+    nl: "Wijnen"
+  },
+  page_header_drinks: {
+    en: "Drinks",
+    sv: "Drinkar",
+    nl: "Drankjes"
+  },
+  page_header_offers: {
+    en: "Today's Offers",
+    sv: "Dagens Erbjudanden",
+    nl: "Aanbiedingen Van Vandaag"
+  },
+  order_title: {
+    en: "Your order",
+    sv: "Din beställning",
+    nl: "Jouw bestelling"
+  },
+  checkout: {
+    en: "Pay",
+    sv: "Betala",
+    nl: "Betalen"
+  },
+  nav_offers: {
+    en: "Offers",
+    sv: "Erbjudanded",
+    nl: "Aanbiedingen"
+  },
+  nav_search: {
+    en: "Search",
+    sv: "Sök",
+    nl: "Zoekopdracht"
+  },
+  nav_login: {
+    en: "Log in",
+    sv: "Logga in",
+    nl: "Aanmelden"
   }
+
 }

@@ -5,9 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="main.css" />
-  <script type="text/javascript" src="jquery-1.11.1.js"></script>
   <script type="text/javascript" src="dictionary.js"></script>
+  <script type="text/javascript" src="jquery-1.11.1.js"></script>
   <script type="text/javascript" src="script.js"></script>
+  
   <title>Flying Dutchman</title>
 </head>
 <body>
@@ -22,45 +23,46 @@
 
       <p><span id="sv" class="languageButton">🇸🇪</span>/<span id="en" class="languageButton">🇬🇧</span>/<span id="nl" class="languageButton">🇳🇱</span></p>
       
-      <div class="navSymbol">
+      <div id="search_symbol" class="navSymbol">
         <img src="assets/search_symbol.svg" alt="Search">
+        <p id="nav_search"></p>
+        <button id="search_button"></button>
       </div>
       
-      <p>Search</p>
       
-      <div class="navSymbol">
+      <div id="offer_symbol" class="navSymbol">
         <img src="assets/offers_symbol.svg" alt="Offers">
+        <p id="nav_offers"></p>
+        <button id="offer_button"></button>
       </div>
 
-      <p>Offers</p>
-
-      <div class="navSymbol">
+      <div id="beer_symbol" class="navSymbol">
         <img src="assets/beer_symbol.svg" alt="Beers">
+        <p id="page_header_beers"></p>
+        <button id="beer_button"></button>
       </div>
      
-      <p>Beers</p>
-
-      <div class="navSymbol">
+      <div id="wine_symbol" class="navSymbol">
         <img src="assets/wine_symbol.svg" alt="Wine">
+        <p id="page_header_wines"></p>
+        <button id="wine_button"></button>
       </div>
      
-      <p>Wines</p>
-     
-      <div class="navSymbol">
+      <div id="drink_symbol" class="navSymbol">
         <img src="assets/drink_symbol.svg" alt="Drinks">
+        <p id="page_header_drinks"></p>
+        <button id="drink_button"></button>
       </div>
-
-      <p>Drinks</p>
 
     </div>
 
-    <div class="navLogIn">
+    <div id="login_symbol" class="navLogIn">
 
       <div class="navSymbol">
         <img src="assets/login_symbol.svg" alt="Log In">
+        <p id="nav_login"></p>
+        <button id="login_button"></button>
       </div>
-
-      <p>Log In</p>
     </div>
 
   </div>
@@ -70,14 +72,14 @@
   <div class="titleCategory">
     
     <h1 id="page_title"></h1>
-    <h1>Today's Offers</h1>
+    <h1 class="page_header" id="page_header_offers"></h1>
 
   </div>
 
   <!-- Order Text -->
 
   <div class="YourOrderText">
-    <h1>Your Order</h1>
+    <h1 id="order_title"></h1>
       <div class="Undo-Redo">
         <button><img src="assets/undo_FILL0_wght400_GRAD0_opsz48.svg" alt="Undo"></button>
         <button><img src="assets/redo_FILL0_wght400_GRAD0_opsz48.svg" alt="Redo"></button>
@@ -85,20 +87,40 @@
   </div>
 
   <!-- The Item Buttons-->
-  <div class="item_grid" style="overflow-y: scroll;">
+  <div class="item_grid" id="item_display" style="overflow-y: scroll;">
 
-    <div class="ButtonItem">
+    <div class="item-offer" >
+
+        <div class="flag">
+          <p>🇳🇱</p>
+        </div>
+    
+        <div class="ButtonHeadline">
+          <p> EXAMPLE </p>
+        </div>
+    
+        <div class="ButtonBodyText">
+          <p>SPECIAL</p>
+          <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+          <p>ALK %</p>
+        </div>
+    
+        <div class="ButtonHeadline">
+          <p>__ SEK</p>
+        </div>
+    </div>
+    <div class="item-offer" >
 
       <div class="flag">
         <p>🇳🇱</p>
       </div>
   
       <div class="ButtonHeadline">
-        <p> NAME </p>
+        <p> EXAMPLE </p>
       </div>
   
       <div class="ButtonBodyText">
-        <p>TYPE OF BEVERAGE</p>
+        <p>SPECIAL</p>
         <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
         <p>ALK %</p>
       </div>
@@ -106,20 +128,19 @@
       <div class="ButtonHeadline">
         <p>__ SEK</p>
       </div>
-  
     </div>
-    <div class="ButtonItem">
+    <div class="item-offer" >
 
       <div class="flag">
         <p>🇳🇱</p>
       </div>
   
       <div class="ButtonHeadline">
-        <p> NAME </p>
+        <p> EXAMPLE </p>
       </div>
   
       <div class="ButtonBodyText">
-        <p>TYPE OF BEVERAGE</p>
+        <p>SPECIAL</p>
         <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
         <p>ALK %</p>
       </div>
@@ -127,20 +148,39 @@
       <div class="ButtonHeadline">
         <p>__ SEK</p>
       </div>
-  
     </div>
-    <div class="ButtonItem">
+    <div class="item-offer" >
+
+    <div class="flag">
+      <p>🇳🇱</p>
+    </div>
+
+    <div class="ButtonHeadline">
+      <p> EXAMPLE </p>
+    </div>
+
+    <div class="ButtonBodyText">
+      <p>SPECIAL</p>
+      <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+      <p>ALK %</p>
+    </div>
+
+    <div class="ButtonHeadline">
+      <p>__ SEK</p>
+    </div>
+    </div>
+    <div class="item-offer" >
 
       <div class="flag">
         <p>🇳🇱</p>
       </div>
   
       <div class="ButtonHeadline">
-        <p> NAME </p>
+        <p> EXAMPLE </p>
       </div>
   
       <div class="ButtonBodyText">
-        <p>TYPE OF BEVERAGE</p>
+        <p>SPECIAL</p>
         <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
         <p>ALK %</p>
       </div>
@@ -148,20 +188,39 @@
       <div class="ButtonHeadline">
         <p>__ SEK</p>
       </div>
-  
     </div>
-    <div class="ButtonItem">
+    <div class="item-offer" >
 
+      <div class="flag">
+        <p>🇳🇱</p>
+      </div>
+
+      <div class="ButtonHeadline">
+        <p> EXAMPLE </p>
+      </div>
+
+      <div class="ButtonBodyText">
+        <p>SPECIAL</p>
+        <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+        <p>ALK %</p>
+      </div>
+
+      <div class="ButtonHeadline">
+        <p>__ SEK</p>
+      </div>
+    </div>
+
+    <div class="item-beer">
       <div class="flag">
         <p>🇳🇱</p>
       </div>
   
       <div class="ButtonHeadline">
-        <p> NAME </p>
+        <p> EXAMPLE </p>
       </div>
   
       <div class="ButtonBodyText">
-        <p>TYPE OF BEVERAGE</p>
+        <p>BEER</p>
         <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
         <p>ALK %</p>
       </div>
@@ -169,20 +228,18 @@
       <div class="ButtonHeadline">
         <p>__ SEK</p>
       </div>
-  
     </div>
-    <div class="ButtonItem">
-
+    <div class="item-beer">
       <div class="flag">
         <p>🇳🇱</p>
       </div>
   
       <div class="ButtonHeadline">
-        <p> NAME </p>
+        <p> EXAMPLE </p>
       </div>
   
       <div class="ButtonBodyText">
-        <p>TYPE OF BEVERAGE</p>
+        <p>BEER</p>
         <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
         <p>ALK %</p>
       </div>
@@ -190,20 +247,18 @@
       <div class="ButtonHeadline">
         <p>__ SEK</p>
       </div>
-  
     </div>
-    <div class="ButtonItem">
-
+    <div class="item-beer">
       <div class="flag">
         <p>🇳🇱</p>
       </div>
   
       <div class="ButtonHeadline">
-        <p> NAME </p>
+        <p> EXAMPLE </p>
       </div>
   
       <div class="ButtonBodyText">
-        <p>TYPE OF BEVERAGE</p>
+        <p>BEER</p>
         <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
         <p>ALK %</p>
       </div>
@@ -211,20 +266,18 @@
       <div class="ButtonHeadline">
         <p>__ SEK</p>
       </div>
-  
     </div>
-    <div class="ButtonItem">
-
+    <div class="item-beer">
       <div class="flag">
         <p>🇳🇱</p>
       </div>
   
       <div class="ButtonHeadline">
-        <p> NAME </p>
+        <p> EXAMPLE </p>
       </div>
   
       <div class="ButtonBodyText">
-        <p>TYPE OF BEVERAGE</p>
+        <p>BEER</p>
         <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
         <p>ALK %</p>
       </div>
@@ -232,20 +285,18 @@
       <div class="ButtonHeadline">
         <p>__ SEK</p>
       </div>
-  
     </div>
-    <div class="ButtonItem">
-
+    <div class="item-beer">
       <div class="flag">
         <p>🇳🇱</p>
       </div>
   
       <div class="ButtonHeadline">
-        <p> NAME </p>
+        <p> EXAMPLE </p>
       </div>
   
       <div class="ButtonBodyText">
-        <p>TYPE OF BEVERAGE</p>
+        <p>BEER</p>
         <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
         <p>ALK %</p>
       </div>
@@ -253,20 +304,18 @@
       <div class="ButtonHeadline">
         <p>__ SEK</p>
       </div>
-  
     </div>
-    <div class="ButtonItem">
-
+    <div class="item-beer">
       <div class="flag">
         <p>🇳🇱</p>
       </div>
   
       <div class="ButtonHeadline">
-        <p> NAME </p>
+        <p> EXAMPLE </p>
       </div>
   
       <div class="ButtonBodyText">
-        <p>TYPE OF BEVERAGE</p>
+        <p>BEER</p>
         <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
         <p>ALK %</p>
       </div>
@@ -274,20 +323,19 @@
       <div class="ButtonHeadline">
         <p>__ SEK</p>
       </div>
-  
     </div>
-    <div class="ButtonItem">
 
+    <div class="item-wine">
       <div class="flag">
         <p>🇳🇱</p>
       </div>
   
       <div class="ButtonHeadline">
-        <p> NAME </p>
+        <p> EXAMPLE </p>
       </div>
   
       <div class="ButtonBodyText">
-        <p>TYPE OF BEVERAGE</p>
+        <p>WINE</p>
         <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
         <p>ALK %</p>
       </div>
@@ -295,22 +343,234 @@
       <div class="ButtonHeadline">
         <p>__ SEK</p>
       </div>
+    </div>
+    <div class="item-wine">
+      <div class="flag">
+        <p>🇳🇱</p>
+      </div>
   
+      <div class="ButtonHeadline">
+        <p> EXAMPLE </p>
+      </div>
+  
+      <div class="ButtonBodyText">
+        <p>WINE</p>
+        <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+        <p>ALK %</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p>__ SEK</p>
+      </div>
+    </div>
+    <div class="item-wine">
+      <div class="flag">
+        <p>🇳🇱</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p> EXAMPLE </p>
+      </div>
+  
+      <div class="ButtonBodyText">
+        <p>WINE</p>
+        <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+        <p>ALK %</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p>__ SEK</p>
+      </div>
+    </div>
+    <div class="item-wine">
+      <div class="flag">
+        <p>🇳🇱</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p> EXAMPLE </p>
+      </div>
+  
+      <div class="ButtonBodyText">
+        <p>WINE</p>
+        <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+        <p>ALK %</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p>__ SEK</p>
+      </div>
+    </div>
+    <div class="item-wine">
+      <div class="flag">
+        <p>🇳🇱</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p> EXAMPLE </p>
+      </div>
+  
+      <div class="ButtonBodyText">
+        <p>WINE</p>
+        <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+        <p>ALK %</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p>__ SEK</p>
+      </div>
+    </div>
+    <div class="item-wine">
+      <div class="flag">
+        <p>🇳🇱</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p> EXAMPLE </p>
+      </div>
+  
+      <div class="ButtonBodyText">
+        <p>WINE</p>
+        <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+        <p>ALK %</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p>__ SEK</p>
+      </div>
     </div>
 
 
+    <div class="item-drink">
+      <div class="flag">
+        <p>🇳🇱</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p> EXAMPLE </p>
+      </div>
+  
+      <div class="ButtonBodyText">
+        <p>DRINK</p>
+        <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+        <p>ALK %</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p>__ SEK</p>
+      </div>
+    </div>
+    <div class="item-drink">
+      <div class="flag">
+        <p>🇳🇱</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p> EXAMPLE </p>
+      </div>
+  
+      <div class="ButtonBodyText">
+        <p>DRINK</p>
+        <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+        <p>ALK %</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p>__ SEK</p>
+      </div>
+    </div>
+    <div class="item-drink">
+      <div class="flag">
+        <p>🇳🇱</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p> EXAMPLE </p>
+      </div>
+  
+      <div class="ButtonBodyText">
+        <p>DRINK</p>
+        <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+        <p>ALK %</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p>__ SEK</p>
+      </div>
+    </div>
+    <div class="item-drink">
+      <div class="flag">
+        <p>🇳🇱</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p> EXAMPLE </p>
+      </div>
+  
+      <div class="ButtonBodyText">
+        <p>DRINK</p>
+        <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+        <p>ALK %</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p>__ SEK</p>
+      </div>
+    </div>
+    <div class="item-drink">
+      <div class="flag">
+        <p>🇳🇱</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p> EXAMPLE </p>
+      </div>
+  
+      <div class="ButtonBodyText">
+        <p>DRINK</p>
+        <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+        <p>ALK %</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p>__ SEK</p>
+      </div>
+    </div>
+    <div class="item-drink">
+      <div class="flag">
+        <p>🇳🇱</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p> EXAMPLE </p>
+      </div>
+  
+      <div class="ButtonBodyText">
+        <p>DRINK</p>
+        <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
+        <p>ALK %</p>
+      </div>
+  
+      <div class="ButtonHeadline">
+        <p>__ SEK</p>
+      </div>
+    </div>
+  
+    <div class="fill"></div>
   </div>
+    
 
   
 
   <!-- Order Box  -->
-  <div>
-    <button id="total_order_price">Check out __ SEK</button>
-  </div>
 
-  <div class="OrderBox" style="overflow-y: scroll;" >
 
-    <div class="Item">
+  <div class="OrderBox" >
+    <div>
+      <button id="total_order_price"><p id="checkout"></p></button>
+    </div>
+
+    <div class="order_item">
       <button id="remove_item">
         <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
       </button>
@@ -335,7 +595,7 @@
       </div>
       <hr>
     </div>
-    <div class="Item">
+    <div class="order_item">
       <button id="remove_item">
         <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
       </button>
@@ -360,7 +620,7 @@
       </div>
       <hr>
     </div>
-    <div class="Item">
+    <div class="order_item">
       <button id="remove_item">
         <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
       </button>
@@ -385,7 +645,7 @@
       </div>
       <hr>
     </div>
-    <div class="Item">
+    <div class="order_item">
       <button id="remove_item">
         <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
       </button>
@@ -410,7 +670,7 @@
       </div>
       <hr>
     </div>
-    <div class="Item">
+    <div class="order_item">
       <button id="remove_item">
         <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
       </button>
@@ -435,7 +695,7 @@
       </div>
       <hr>
     </div>
-    <div class="Item">
+    <div class="order_item">
       <button id="remove_item">
         <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
       </button>
@@ -461,10 +721,8 @@
       <hr>
     </div>
 
-    
-    
-    
-    
+    <div class="fill"></div>
+
   </div>
 
 </body>
