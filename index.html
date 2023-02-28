@@ -69,8 +69,8 @@
 
   <div class="titleCategory">
     
-    <h1 id="page_title"></h1>
-    <h1>Today's Offers</h1>
+    <!-- <h1 id="page_title"></h1> -->
+    <h1 id="page_header"></h1>
 
   </div>
 
@@ -81,7 +81,7 @@
   <!-- Order Text -->
 
   <div class="YourOrderText">
-    <h1>Your Order</h1>
+    <h1 id="order_header"></h1>
       <div class="Undo-Redo">
         <button><img src="assets/undo_FILL0_wght400_GRAD0_opsz48.svg" alt="Undo"></button>
         <button><img src="assets/redo_FILL0_wght400_GRAD0_opsz48.svg" alt="Redo"></button>
@@ -90,12 +90,37 @@
 
   <!-- Order Box  -->
   <div>
-    <button id="total_order_price">Check out __ SEK</button>
+    <button id="total_order_price">Check out 195.00 SEK</button>
   </div>
 
   <div class="OrderBox" style="overflow-y: scroll;" >
 
-    <div class="Item">
+    <div class="order_item">
+      <div class="item_text">
+        <h3>Vanlig Vodka</h3>
+        <p>Okryddad sprit</p>
+        <h3>195.00 SEK</h3>
+      </div>
+      <div class="item_controls">
+        <button class="controls_remove">
+          <img src="assets/cancel_black_24dp.svg" alt="Remove">
+        </button>
+        <div class="item_price-total">
+          <h2>195.00 SEK</h2>
+        </div>
+        <div class="controls_adjust-amount">
+          <button id="decrease_item_qty">
+            <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
+          </button>
+          <span id="item_qty">1</span>
+          <button id="increase_item_qty">
+            <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="Item">
       <button id="remove_item">
         <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
       </button>
@@ -244,12 +269,7 @@
         </button>
       </div>
       <hr>
-    </div>
-
-    
-    
-    
-    
+    </div> -->
   </div>
 
 </body>

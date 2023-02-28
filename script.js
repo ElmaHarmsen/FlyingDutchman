@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //and if it does not exist we use the default value which is sv. 
   update_view(localStorage.getItem("setLanguage") ? localStorage.getItem("setLanguage") : "sv");
 
+//still have to write documentation
   fetch("./beverages.json")
   .then(rawData => rawData.json())
   .then(beverageData => {
@@ -56,19 +57,21 @@ document.addEventListener("DOMContentLoaded", () => {
         beverageContainer.innerHTML = 
         `
         <div class="ButtonItem">
-          <div class="flag">
-            <p>🇳🇱</p>
-          </div>
           <div class="ButtonHeadline">
-            <p>${beverage.name}</p>
+            <h2>${beverage.name}</h2>
           </div>
           <div class="ButtonBodyText">
-            <p>TYPE OF BEVERAGE</p>
-            <p>TYPE OF B/W/D</p> <!-- B = Beer, W = Whine, D = Drink --> 
-            <p>ALK %</p>
+            <p>${beverage.countryoforiginlandname}</p>
+            <p>${beverage.category}</p>
+            <p>${beverage.packaging}</p>
+            <p>Alc ${beverage.alcoholstrength}</p>
           </div>
           <div class="ButtonHeadline">
-            <p>__ SEK</p>
+            <h2>${beverage.priceinclvat} SEK</h2>
+          </div>
+          <div class="card_button ${beverage.nr === "1001" ? "checked" : ""}">
+            <button class="add_icon"><img src="assets/add_white_24dp.svg" class="card_button-Icon" alt="Add"></button>
+            <button class="check_icon"><img src="assets/check_white_24dp.svg" class="card_button-icon" alt="Check"></button>
           </div>
         </div>
         `
