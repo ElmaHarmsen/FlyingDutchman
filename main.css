@@ -589,3 +589,139 @@ span {
   padding-left: 100px;
 }
 
+.ItemNameOrder {
+  font-family: "poppins-semibold";
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.DescriptionOrder {
+  font-family: "poppins-regular";
+  font-size: 16px;
+  padding-left: 10px;
+}
+.Item{
+  margin-left: 25px;
+  position: relative;
+}
+
+button{
+  border: none;
+  background-color: transparent;
+}
+.order_controls {/*control buttons for items in orderbox*/
+  display: flex;
+  align-items: center;
+  float: right;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
+#total_order_price{/*Checkout button*/
+  z-index: 1;
+  border: none;
+  font-family: "poppins-semibold";
+  font-size: 14px;
+  color: var(--white);
+  background-color: var(--blue);
+  height: 50px;
+  width: 220px;
+  position: absolute;
+  margin: auto;
+  transform: translate(735px,-70px);
+
+  border-radius: 10px;
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+#name_id{
+  font-family: "poppins-semibold";
+}
+
+#serving_size{
+  margin-top: -10px;
+  font-size: 12px;
+}
+
+#item_price{
+  font-family: "poppins-bold";
+  margin-top: -5px;
+  font-size: 14px;
+}
+
+#remove_item, #remove_item img{
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  top: -5px;
+  right: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#decrease_item_qty, #increase_item_qty{
+  background-color: var(--mildgray);
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#decrease_item_qty{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+#increase_item_qty{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#decrease_item_qty img, #increase_item_qty img{
+  height: 20px;
+  width: 20px;
+}
+
+#item_qty{
+  background-color: var(--white);
+  height: 25px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#total_item_price{
+  font-family: "poppins-bold";
+  font-size: 18px;
+  position: absolute;
+  top: 40px;
+  right: 25px;
+}
+
+#item_qty{
+  padding-left: 10px;
+  padding-right: 10px;
+  width: auto;
+}
+
+hr {
+  transform: translateX(-25px);
+  border: none;
+  border-top: 1px dashed var(--mildgray);
+  background-color: var(--offwhite);
+  height: 1px;
+  width: 300px;
+}
+span{
+  font-family: "poppins-regular";
+}
+
+.LogInBox{
+  margin: 0 auto;
+}
+
+
+#Arrow{
+  padding-left: 100px;
+}
+
