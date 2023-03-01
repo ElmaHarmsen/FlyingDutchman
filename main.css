@@ -99,13 +99,13 @@ p {
   height: 50px;
 }
 
-.nav_button_div button{
+.nav_button_div button {
   position: absolute;
   height: 70px;
   width: 80px;
   display: flex;
   align-items: center;
-  transform: translate(0px,-20px);
+  transform: translate(0px, -20px);
 }
 
 /* The page content div */
@@ -124,14 +124,13 @@ p {
   height: 49px;
 }
 
-.text-header{
+.text-header {
   position: absolute;
   display: none;
 }
-#deal-header{
+#deal-header {
   display: block;
 }
-
 
 .title_category h1 {
   margin: 0;
@@ -305,11 +304,13 @@ p {
   position: relative;
 }
 
-button { /*Change this to make buttons visable*/
+button {
+  /*Change this to make buttons visable*/
   border: none;
   background-color: transparent;
 }
-.order_controls {/*control buttons for items in orderbox*/
+.order_controls {
+  /*control buttons for items in orderbox*/
   display: flex;
   align-items: center;
   float: right;
@@ -420,4 +421,28 @@ hr {
 }
 span {
   font-family: "poppins-regular";
+}
+
+.LogInBox {
+  padding-left: 330px;
+  padding-top: 100px;
+}
+
+.LogInInputBox {
+  background-color: var(--offwhite);
+  width: 420px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 5px var(--mildgray);
+}
+
+.LogInText {
+  font-family: "poppins-bold";
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+#Arrow {
+  padding-left: 100px;
+  padding-top: 20px;
 }
