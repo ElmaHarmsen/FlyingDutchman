@@ -1,276 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="main.css" />
-  <script type="text/javascript" src="jquery-1.11.1.js"></script>
-  <script type="text/javascript" src="dictionary.js"></script>
-  <script type="text/javascript" src="script.js"></script>
-  <title>Flying Dutchman</title>
-</head>
-<body>
-  
-<!-- Hello guyzz I have written a description of every class in the css file //Tuva --> 
-    
-  <!-- Nav Bar -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="dictionary.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <title>Flying Dutchman</title>
+  </head>
+  <body>
+    <!-- Nav Bar -->
+    <div class="navbar">
+      <div class="navText">
+        <p>
+          <span id="sv" class="languageButton">🇸🇪</span>/<span
+            id="en"
+            class="languageButton"
+            >🇬🇧</span
+          >/<span id="nl" class="languageButton">🇳🇱</span>
+        </p>
 
-  <div class="navbar">
+        <div class="navSymbol">
+          <img src="assets/search_symbol.svg" alt="Search" />
+        </div>
 
-    <div class="navText">
+        <p>Search</p>
 
-      <p><span id="sv" class="languageButton">🇸🇪</span>/<span id="en" class="languageButton">🇬🇧</span>/<span id="nl" class="languageButton">🇳🇱</span></p>
-      
-      <div class="navSymbol">
-        <img src="assets/search_symbol.svg" alt="Search">
+        <div class="navSymbol">
+          <img src="assets/offers_symbol.svg" alt="Offers" />
+        </div>
+
+        <p>Offers</p>
+
+        <div class="navSymbol">
+          <img src="assets/beer_symbol.svg" alt="Beers" />
+        </div>
+
+        <p>Beers</p>
+
+        <div class="navSymbol">
+          <img src="assets/wine_symbol.svg" alt="Wine" />
+        </div>
+
+        <p>Wines</p>
+
+        <div class="navSymbol">
+          <img src="assets/drink_symbol.svg" alt="Drinks" />
+        </div>
+
+        <p>Drinks</p>
       </div>
-      
-      <p>Search</p>
-      
-      <div class="navSymbol">
-        <img src="assets/offers_symbol.svg" alt="Offers">
+
+      <div class="navLogIn">
+        <div class="navSymbol">
+          <img src="assets/login_symbol.svg" alt="Log In" />
+        </div>
+
+        <p>Log In</p>
       </div>
-
-      <p>Offers</p>
-
-      <div class="navSymbol">
-        <img src="assets/beer_symbol.svg" alt="Beers">
-      </div>
-     
-      <p>Beers</p>
-
-      <div class="navSymbol">
-        <img src="assets/wine_symbol.svg" alt="Wine">
-      </div>
-     
-      <p>Wines</p>
-     
-      <div class="navSymbol">
-        <img src="assets/drink_symbol.svg" alt="Drinks">
-      </div>
-
-      <p>Drinks</p>
-
     </div>
 
-    <div class="navLogIn">
-
-      <div class="navSymbol">
-        <img src="assets/login_symbol.svg" alt="Log In">
-      </div>
-
-      <p>Log In</p>
+    <!-- Page Title -->
+    <div class="titleCategory">
+      <h1 id="page_header"></h1>
     </div>
 
-  </div>
+    <!-- JSON content -->
+    <div id="db_content" class="item_grid"></div>
 
-  <!-- Page Title -->
-
-  <div class="titleCategory">
-    
-    <!-- <h1 id="page_title"></h1> -->
-    <h1 id="page_header"></h1>
-
-  </div>
-
-  <!-- JSON content -->
-  <div id="db_content" class="item_grid">
-  </div>
-
-  <!-- Order Text -->
-
-  <div class="YourOrderText">
-    <h1 id="order_header"></h1>
+    <!-- Order Text -->
+    <div class="YourOrderText">
+      <h1 id="order_header"></h1>
       <div class="Undo-Redo">
-        <button><img src="assets/undo_FILL0_wght400_GRAD0_opsz48.svg" alt="Undo"></button>
-        <button><img src="assets/redo_FILL0_wght400_GRAD0_opsz48.svg" alt="Redo"></button>
-      </div>
-  </div>
-
-  <!-- Order Box  -->
-  <div>
-    <button id="total_order_price">Check out 195.00 SEK</button>
-  </div>
-
-  <div class="OrderBox" style="overflow-y: scroll;" >
-
-    <div class="order_item">
-      <div class="item_text">
-        <h3>Vanlig Vodka</h3>
-        <p>Okryddad sprit</p>
-        <h3>195.00 SEK</h3>
-      </div>
-      <div class="item_controls">
-        <button class="controls_remove">
-          <img src="assets/cancel_black_24dp.svg" alt="Remove">
+        <button>
+          <img src="assets/undo_FILL0_wght400_GRAD0_opsz48.svg" alt="Undo" />
         </button>
-        <div class="item_price-total">
-          <h2>195.00 SEK</h2>
+        <button>
+          <img src="assets/redo_FILL0_wght400_GRAD0_opsz48.svg" alt="Redo" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Order Box  -->
+    <div>
+      <button id="total_order_price">Check out 195.00 SEK</button>
+    </div>
+
+    <div class="OrderBox" style="overflow-y: scroll">
+      <div class="order_item">
+        <div class="item_text">
+          <h3>Vanlig Vodka</h3>
+          <p>Okryddad sprit</p>
+          <h3>195.00 SEK</h3>
         </div>
-        <div class="controls_adjust-amount">
-          <button id="decrease_item_qty">
-            <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
+        <div class="item_controls">
+          <button class="controls_remove">
+            <img src="assets/cancel_black_24dp.svg" alt="Remove" />
           </button>
-          <span id="item_qty">1</span>
-          <button id="increase_item_qty">
-            <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
-          </button>
+          <div class="item_price-total">
+            <h2>195.00 SEK</h2>
+          </div>
+          <div class="controls_adjust-amount">
+            <button id="decrease_item_qty">
+              <img
+                src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg"
+                alt="Subtract"
+              />
+            </button>
+            <span id="item_qty">1</span>
+            <button id="increase_item_qty">
+              <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- <div class="Item">
-      <button id="remove_item">
-        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
-      </button>
-      <div class="Details">
-        <p id="name_id">NAME - ALK%</p>
-        <p id="serving_size">Type of B/W/D</p>
-        <p id="item_price">__ SEK</p>
-      </div>
-
-      <div class="order_controls">
-        <p id="total_item_price">__ SEK</p>
-
-        <button id="decrease_item_qty">
-          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
-        </button>
-
-        <span id="item_qty">X</span>
-
-        <button id="increase_item_qty">
-          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
-        </button>
-      </div>
-      <hr>
-    </div>
-    <div class="Item">
-      <button id="remove_item">
-        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
-      </button>
-      <div class="Details">
-        <p id="name_id">NAME - ALK%</p>
-        <p id="serving_size">Type of B/W/D</p>
-        <p id="item_price">__ SEK</p>
-      </div>
-
-      <div class="order_controls">
-        <p id="total_item_price">__ SEK</p>
-
-        <button id="decrease_item_qty">
-          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
-        </button>
-
-        <span id="item_qty">X</span>
-
-        <button id="increase_item_qty">
-          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
-        </button>
-      </div>
-      <hr>
-    </div>
-    <div class="Item">
-      <button id="remove_item">
-        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
-      </button>
-      <div class="Details">
-        <p id="name_id">NAME - ALK%</p>
-        <p id="serving_size">Type of B/W/D</p>
-        <p id="item_price">__ SEK</p>
-      </div>
-
-      <div class="order_controls">
-        <p id="total_item_price">__ SEK</p>
-
-        <button id="decrease_item_qty">
-          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
-        </button>
-
-        <span id="item_qty">X</span>
-
-        <button id="increase_item_qty">
-          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
-        </button>
-      </div>
-      <hr>
-    </div>
-    <div class="Item">
-      <button id="remove_item">
-        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
-      </button>
-      <div class="Details">
-        <p id="name_id">NAME - ALK%</p>
-        <p id="serving_size">Type of B/W/D</p>
-        <p id="item_price">__ SEK</p>
-      </div>
-
-      <div class="order_controls">
-        <p id="total_item_price">__ SEK</p>
-
-        <button id="decrease_item_qty">
-          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
-        </button>
-
-        <span id="item_qty">X</span>
-
-        <button id="increase_item_qty">
-          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
-        </button>
-      </div>
-      <hr>
-    </div>
-    <div class="Item">
-      <button id="remove_item">
-        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
-      </button>
-      <div class="Details">
-        <p id="name_id">NAME - ALK%</p>
-        <p id="serving_size">Type of B/W/D</p>
-        <p id="item_price">__ SEK</p>
-      </div>
-
-      <div class="order_controls">
-        <p id="total_item_price">__ SEK</p>
-
-        <button id="decrease_item_qty">
-          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
-        </button>
-
-        <span id="item_qty">X</span>
-
-        <button id="increase_item_qty">
-          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
-        </button>
-      </div>
-      <hr>
-    </div>
-    <div class="Item">
-      <button id="remove_item">
-        <img src="assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Remove">
-      </button>
-      <div class="Details">
-        <p id="name_id">NAME - ALK%</p>
-        <p id="serving_size">Type of B/W/D</p>
-        <p id="item_price">__ SEK</p>
-      </div>
-
-      <div class="order_controls">
-        <p id="total_item_price">__ SEK</p>
-
-        <button id="decrease_item_qty">
-          <img src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg" alt="Subtract">
-        </button>
-
-        <span id="item_qty">X</span>
-
-        <button id="increase_item_qty">
-          <img src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg" alt="Add">
-        </button>
-      </div>
-      <hr>
-    </div> -->
-  </div>
-
-</body>
+  </body>
 </html>
