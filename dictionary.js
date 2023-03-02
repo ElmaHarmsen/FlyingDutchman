@@ -8,9 +8,14 @@ const dictionaryList = {
     sv: "Den Flygande Holländaren",
     nl: "De Vliegende Hollander"
   },
-  test: {
-    en: "smth",
-    sv: "något",
-    nl: "iets"
+  page_header: {
+    en: "Today's offers",
+    sv: "Dagens erbjudanden",
+    nl: "Aanbiedingen van vandaag"
+  },
+  order_header: {
+    en: "Order",
+    sv: "Beställa",
+    nl: "Bestelling"
   }
 }
