@@ -22,41 +22,42 @@
       </div>
       <div class="nav_items">
         <!--Search-->
-        <div id="search_symbol" class="nav_button">
+        <div id="search_symbol" class="nav_button_div">
           <img src="assets/search_symbol.svg" alt="Search" />
-          <p id="page_header_search"></p>
+          <p id="nav_header_search"></p>
           <button id="search_button"></button>
         </div>
         <!--Deals-->
-        <div id="offer_symbol" class="nav_button">
+        <div id="deal_symbol" class="nav_button_div">
           <img src="assets/offers_symbol.svg" alt="Offers" />
-          <p id="page_header_deals"></p>
-          <button id="offer_button"></button>
+          <p id="nav_header_deals"></p>
+          <button class="nav_button" id="offer_button" data-text="deal-header"></button>
         </div>
         <!--Beers-->
-        <div id="beer_symbol" class="nav_button">
+        <div id="beer_symbol" class="nav_button_div">
           <img src="assets/beer_symbol.svg" alt="Beers" />
-          <p id="page_header_beers"></p>
-          <button id="beer_button"></button>
+          <p id="nav_header_beers"></p>
+          <button class="nav_button" id="beer_button" data-text="beer-header"></button>
         </div>
         <!--Wines-->
-        <div id="wine_symbol" class="nav_button">
+        <div id="wine_symbol" class="nav_button_div">
           <img src="assets/wine_symbol.svg" alt="Wine" />
-          <p id="page_header_wines"></p>
-          <button id="wine_button"></button>
+          <p id="nav_header_wines"></p>
+          <button class="nav_button" id="wine_button" data-text="wine-header"></button>
         </div>
         <!--Drinks-->
-        <div id="drink_symbol" class="nav_button">
+        <div id="drink_symbol" class="nav_button_div">
           <img src="assets/drink_symbol.svg" alt="Drinks" />
-          <p id="page_header_drinks"></p>
-          <button id="drink_button"></button>
+          <p id="nav_header_drinks"></p>
+          <button class="nav_button" id="drink_button" data-text="drink-header"></button>
         </div>
       </div>
 
       <div class="nav_login">
-        <div class="nav_button">
+        <div class="nav_button_div">
           <img src="assets/login_symbol.svg" alt="Log In" />
-          <p id="page_header_login"></p>
+          <p id="nav_header_login"></p>
+          <button id="login_button"></button>
         </div>
       </div>
     </div>
@@ -65,7 +66,23 @@
     <div class="page_content">
       <!-- Page Title -->
       <div class="title_category">
-        <h1 id="page_header"></h1>
+
+        <div class="text-header" id="deal-header">
+          <h1 id="page_header"></h1>
+        </div>
+
+        <div class="text-header" id="beer-header">
+          <h1 id="page_header_beers"></h1>
+        </div>
+
+        <div class="text-header" id="wine-header">
+          <h1 id="page_header_wines"></h1>
+        </div>
+
+        <div class="text-header" id="drink-header">
+          <h1 id="page_header_drinks"></h1>
+        </div>
+
       </div>
       <!-- JSON content -->
       <div id="db_content" class="item_grid"></div>

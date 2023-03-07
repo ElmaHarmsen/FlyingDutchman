@@ -91,3 +91,48 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 });
+
+//Button to change header, might get expanded
+//DOMContentLoaded had to be implemented
+//This block of code takes in all nav_buttons classes and all text-header classes
+//Then it loops through all the navigation bar buttons when a button is pressed
+//where it takes the data-text from the button and loops it over the
+//different text-header elements (which are the divs representing the header). 
+//If the text-header ID is the same as the button data-text the div is shown, 
+//otherwise it is hidden. Also it changes the background colour by replacing the
+//"-header" tag with the "_symbol" tag to check for all the ID's of the nav_Symbols.
+document.addEventListener("DOMContentLoaded", () => {
+  const navBtns = document.querySelectorAll(".nav_button");
+  const HeaderID = document.querySelectorAll(".text-header");
+
+  let prevNavSymbol = null; //keep track of the previously selected symbol element
+
+  navBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const BtnData = document.getElementById(btn.dataset.text);
+
+      HeaderID.forEach((text) => {
+        if (text === BtnData) {
+          text.style.display = "block";
+        } else {
+          text.style.display = "none";
+        }
+        
+      });
+      
+      //Select the symbol div based on the button clicked
+      const symbolId = btn.dataset.text.replace("-header", "_symbol");
+      const NavSymbol = document.getElementById(symbolId);
+
+      if (prevNavSymbol) {//Reset the background color of the previously selected symbol div
+        prevNavSymbol.style.backgroundColor = "";
+      }
+      
+      if (NavSymbol) {//Set the background color of the currently selected symbol div
+        NavSymbol.style.backgroundColor = "white";
+      }
+      
+      prevNavSymbol = NavSymbol; //update the previously selected symbol element
+    });
+  });
+});

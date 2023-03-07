@@ -91,10 +91,21 @@ p {
 }
 
 /* The buttons in the nav bar */
-.nav_button {
+.nav_button_div {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  width: 80px;
+  height: 50px;
+}
+
+.nav_button_div button{
+  position: absolute;
+  height: 70px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  transform: translate(0px,-20px);
 }
 
 /* The page content div */
@@ -110,7 +121,17 @@ p {
 .title_category {
   margin-top: 24px;
   margin-bottom: 24px;
+  height: 49px;
 }
+
+.text-header{
+  position: absolute;
+  display: none;
+}
+#deal-header{
+  display: block;
+}
+
 
 .title_category h1 {
   margin: 0;
@@ -284,12 +305,11 @@ p {
   position: relative;
 }
 
-button {
+button { /*Change this to make buttons visable*/
   border: none;
   background-color: transparent;
 }
-.order_controls {
-  /*control buttons for items in orderbox*/
+.order_controls {/*control buttons for items in orderbox*/
   display: flex;
   align-items: center;
   float: right;
