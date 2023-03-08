@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="main.css" />
-    <script type="text/javascript" src="jquery-1.11.1.js"></script>
     <script type="text/javascript" src="dictionary.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <title>Flying Dutchman</title>
@@ -31,25 +30,41 @@
         <div id="deal_symbol" class="nav_button_div">
           <img src="assets/offers_symbol.svg" alt="Offers" />
           <p id="nav_header_deals"></p>
-          <button class="nav_button" id="offer_button" data-text="deal-header"></button>
+          <button
+            class="nav_button"
+            id="offer_button"
+            data-text="deal-header"
+          ></button>
         </div>
         <!--Beers-->
         <div id="beer_symbol" class="nav_button_div">
           <img src="assets/beer_symbol.svg" alt="Beers" />
           <p id="nav_header_beers"></p>
-          <button class="nav_button" id="beer_button" data-text="beer-header"></button>
+          <button
+            class="nav_button"
+            id="beer_button"
+            data-text="beer-header"
+          ></button>
         </div>
         <!--Wines-->
         <div id="wine_symbol" class="nav_button_div">
           <img src="assets/wine_symbol.svg" alt="Wine" />
           <p id="nav_header_wines"></p>
-          <button class="nav_button" id="wine_button" data-text="wine-header"></button>
+          <button
+            class="nav_button"
+            id="wine_button"
+            data-text="wine-header"
+          ></button>
         </div>
         <!--Drinks-->
         <div id="drink_symbol" class="nav_button_div">
           <img src="assets/drink_symbol.svg" alt="Drinks" />
           <p id="nav_header_drinks"></p>
-          <button class="nav_button" id="drink_button" data-text="drink-header"></button>
+          <button
+            class="nav_button"
+            id="drink_button"
+            data-text="drink-header"
+          ></button>
         </div>
       </div>
 
@@ -66,7 +81,6 @@
     <div class="page_content">
       <!-- Page Title -->
       <div class="title_category">
-
         <div class="text-header" id="deal-header">
           <h1 id="page_header"></h1>
         </div>
@@ -82,7 +96,6 @@
         <div class="text-header" id="drink-header">
           <h1 id="page_header_drinks"></h1>
         </div>
-
       </div>
       <!-- JSON content -->
       <div id="db_content" class="item_grid"></div>
@@ -104,6 +117,7 @@
       </div>
       <!--Orderbox items-->
       <div class="order_box">
+        <div class="dropzone" id="dropTarget"></div>
         <div class="order_item">
           <div class="item_text">
             <h3>Vanlig Vodka</h3>
@@ -140,30 +154,31 @@
         </button>
       </div>
     </div>
-  </div>
 
-  <div class="loginpage"> 
-
-    <div class="LogInBox">
-
-      <h1>Log In</h1>
+    <div class="loginpage">
+      <div class="LogInBox">
+        <h1>Log In</h1>
 
         <form id="login">
-
           <p>E-mail</p>
-          <input type="text" class="mail" id="mail" name="mail">
+          <input type="text" class="mail" id="mail" name="mail" />
 
           <p>Password</p>
-          <input type="password" class="password" id="password" name="password">
+          <input
+            type="password"
+            class="password"
+            id="password"
+            name="password"
+          />
 
-          <input type="submit" class="LogInButton" value="Submit" onclick="login()">
-        
+          <input
+            type="submit"
+            class="LogInButton"
+            value="Submit"
+            onclick="login()"
+          />
         </form>
-
+      </div>
     </div>
-
-</div>
-
-
-</body>
+  </body>
 </html>

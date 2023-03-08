@@ -19,14 +19,6 @@
   src: url("./assets/Poppins-Bold.ttf");
 }
 
-body {
-  overflow: hidden;
-}
-
-body {
-  overflow: hidden;
-}
-
 :root {
   --blue: #2d598b;
   --darkblue: #191923;
@@ -483,6 +475,7 @@ span {
   top: 0;
   width: 944px;
   height: 768px;
+  display: none;
 }
 
 #Arrow {
@@ -776,4 +769,9 @@ span {
 
 #Arrow {
   padding-left: 100px;
+}
+
+#dropTarget {
+  height: 100px;
+  background-color: greenyellow;
 }

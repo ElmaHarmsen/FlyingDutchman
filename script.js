@@ -1,3 +1,5 @@
+let draggedItem = null;
+
 //function update_view intends to update all text in the current language to the newly selected one.
 //for every key in the array of keys in dictionaryList, which we fetch from the dictionary.js file,
 //and we declare a languageString and set it to the current language.
@@ -67,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         beverageData.forEach((beverage) => {
           const beverageContainer = document.createElement("div");
           beverageContainer.innerHTML = `
-        <div class="ButtonItem">
+        <div class="ButtonItem draggableItem" draggable="true">
           <div class="ButtonHeadline">
             <h2>${beverage.name}</h2>
           </div>
@@ -87,9 +89,33 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         `;
           beverageElement.appendChild(beverageContainer);
+
+          const source = beverageContainer.querySelector(".draggableItem");
+          console.log(source, beverageContainer);
+          source.addEventListener("dragstart", (event) => {
+            draggedItem = event.target;
+            console.log("dragging happening");
+          });
         });
       }
     });
+  const target = document.getElementById("dropTarget");
+  target.addEventListener("dragover", (event) => {
+    event.preventDefault();
+  });
+
+  target.addEventListener("drop", (event) => {
+    event.preventDefault();
+    // move dragged element to the selected drop target
+    if (event.target.id === "dropTarget") {
+      //item deletes itself from html
+      draggedItem.parentNode.removeChild(draggedItem);
+      //item adds iteself to dropTarget as a child
+      //instead of draggedItem, create another green html item
+      event.target.appendChild(draggedItem);
+      console.log("dropped item");
+    }
+  });
 });
 
 //Button to change header, might get expanded
