@@ -129,10 +129,44 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
       if (NavSymbol) {//Set the background color of the currently selected symbol div
-        NavSymbol.style.backgroundColor = "white";
+        NavSymbol.style.backgroundColor = "var(--white)";
       }
       
       prevNavSymbol = NavSymbol; //update the previously selected symbol element
     });
   });
 });
+
+// These are the functions that recieves the users input from the log in page
+//In the function validateForm() the strings from the login input are put in two vaiables, one for mail and one for password.
+function validateForm() {
+  var mail = document.getElementById("mail").value;
+  var password = document.getElementById("password").value;
+
+//This if statement create a pop up if the fields are empty, since the user has to fill in something in the fields.
+  if (mail == "" || password == "") {
+    alert("Please fill in all fields.");
+    return false;
+  }
+  return true;
+}
+
+//This is the function that decides if the user can be logged in or not. This function is runned if the validateForm
+//function is true.
+function login() {
+  if (validateForm()) {
+    var mail1 = document.getElementById("mail").value; 
+    var password1 = document.getElementById("password").value;
+
+    //Our test log in is mail: "hej" and password: "hej"
+    if (mail1 == "hej" && password1 == "hej") {
+      alert("Login successful!");
+      window.location.href = "index.html";
+    } else if (mail1 == "hej" && password1 == "hej") {
+      alert("Login successful!");
+      window.location.href = "index.html";
+    } else {
+      alert("Invalid username or password.");
+    }
+  }
+}

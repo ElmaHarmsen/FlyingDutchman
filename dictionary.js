@@ -44,9 +44,9 @@ const dictionaryList = {
     nl: "Drankjes",
   },
   nav_header_login: {
-    en: "Sign in",
+    en: "Log in",
     sv: "Logga in",
-    nl: "Log in",
+    nl: "Inloggen",
   },
   order_pay: {
     en: "Pay",
@@ -81,7 +81,17 @@ const dictionaryList = {
   page_header_login: {
     en: "Sign in",
     sv: "Logga in",
-    nl: "Log in",
+    nl: "Inloggen",
+  },
+  loginpage_header: {
+    en: "Log in",
+    sv: "Logga in",
+    nl: "Inloggen",
+  },
+  login_password: {
+    en: "Password",
+    sv: "Lösenord",
+    nl: "Wachtwoord",
   },
   
 };

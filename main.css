@@ -52,6 +52,11 @@ p {
   margin: 0;
 }
 
+button { /*Change this to make buttons visable*/
+  border: none;
+  background-color: transparent;
+}
+
 /* Nav Bar */
 .nav_bar {
   display: flex;
@@ -79,11 +84,11 @@ p {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  gap: 24px;
+  gap: 0px;
 }
 
 /* The class for the log in button, since it is placed at the bottom of the nav bar */
-.nav_login {
+#login_symbol {
   position: absolute;
   bottom: 32px;
   left: 0;
@@ -96,7 +101,8 @@ p {
   flex-flow: column nowrap;
   align-items: center;
   width: 80px;
-  height: 50px;
+  height: 70px;
+  justify-content: center;
 }
 
 .nav_button_div button{
@@ -105,7 +111,6 @@ p {
   width: 80px;
   display: flex;
   align-items: center;
-  transform: translate(0px,-20px);
 }
 
 /* The page content div */
@@ -304,11 +309,6 @@ p {
   margin-left: 25px;
   position: relative;
 }
-
-button { /*Change this to make buttons visable*/
-  border: none;
-  background-color: transparent;
-}
 .order_controls {/*control buttons for items in orderbox*/
   display: flex;
   align-items: center;
@@ -316,6 +316,62 @@ button { /*Change this to make buttons visable*/
   padding-right: 15px;
   padding-bottom: 15px;
 }
+
+.LogInBox{ /*The div which centers the log in content*/
+  /* padding-left: 330px; */
+  padding-top: 100px;
+  display: flex;
+  flex-flow:column;
+  align-items: center; 
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.mail{ /*The box where the user types in the email adress*/
+  background-color: var(--offwhite);
+  width: 420px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 5px var(--mildgray);
+}
+.password{ /*The box where the user types in the password*/
+  background-color: var(--offwhite);
+  width: 420px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 5px var(--mildgray);
+
+} 
+
+.LogInButton{ /* The Log In Button whihch you press to commit your login*/
+  background-color: var(--darkblue);
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 5px var(--mildgray);
+  color: var(--white);
+  text-align: center;
+  margin: 30px auto;
+} 
+
+#login-header { /* This is the div for the whole login page */
+  /*display: none;*/
+  background-color: var(--white);
+  position: absolute;
+  z-index: 1;
+  left: 80px;
+  top: 0;
+  width: 944px;
+  height: 768px;
+  display: none;
+}
+
+#login{
+  display: flex;
+  flex-flow: column wrap;
+  gap: 10px;
+}
+
 
 #total_order_price {
   /*Checkout button*/
