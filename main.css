@@ -421,3 +421,24 @@ hr {
 span {
   font-family: "poppins-regular";
 }
+
+/* Här är dom klasserna som använts: */
+#key_symbol{
+  width: 90px;
+}
+
+#output {
+  font-size: 50px;
+  font-family: "poppins-bold";
+  
+}
+/* 
+.code_div{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+
+} */

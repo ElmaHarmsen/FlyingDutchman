@@ -136,3 +136,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Generate a combination of four randomized numbers
+
+function generateCombination() {
+
+let num1 = Math.floor(Math.random() * 10); // generate a random integer between 0 and 9
+let num2 = Math.floor(Math.random() * 10);
+let num3 = Math.floor(Math.random() * 10);
+let num4 = Math.floor(Math.random() * 10);
+
+// Combine the numbers into a string
+let combination = `${num1}${num2}${num3}${num4}`;
+
+document.getElementById("output").innerHTML = combination;
+
+}
