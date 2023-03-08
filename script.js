@@ -91,3 +91,83 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 });
+
+//Button to change header, might get expanded
+//DOMContentLoaded had to be implemented
+//This block of code takes in all nav_buttons classes and all text-header classes
+//Then it loops through all the navigation bar buttons when a button is pressed
+//where it takes the data-text from the button and loops it over the
+//different text-header elements (which are the divs representing the header).
+//If the text-header ID is the same as the button data-text the div is shown,
+//otherwise it is hidden. Also it changes the background colour by replacing the
+//"-header" tag with the "_symbol" tag to check for all the ID's of the nav_Symbols.
+document.addEventListener("DOMContentLoaded", () => {
+  const navBtns = document.querySelectorAll(".nav_button");
+  const HeaderID = document.querySelectorAll(".text-header");
+
+  let prevNavSymbol = null; //keep track of the previously selected symbol element
+
+  navBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const BtnData = document.getElementById(btn.dataset.text);
+
+      HeaderID.forEach((text) => {
+        if (text === BtnData) {
+          text.style.display = "block";
+        } else {
+          text.style.display = "none";
+        }
+      });
+
+      //Select the symbol div based on the button clicked
+      const symbolId = btn.dataset.text.replace("-header", "_symbol");
+      const NavSymbol = document.getElementById(symbolId);
+
+      if (prevNavSymbol) {
+        //Reset the background color of the previously selected symbol div
+        prevNavSymbol.style.backgroundColor = "";
+      }
+
+      if (NavSymbol) {
+        //Set the background color of the currently selected symbol div
+        NavSymbol.style.backgroundColor = "white";
+      }
+
+      prevNavSymbol = NavSymbol; //update the previously selected symbol element
+    });
+  });
+});
+
+// These are the functions that recieves the users input from the log in page
+//In the function validateForm() the strings from the login input are put in two vaiables, one for mail and one for password.
+function validateForm() {
+  var mail = document.getElementById("mail").value;
+  var password = document.getElementById("password").value;
+
+  //This if statement create a pop up if the fields are empty, since the user has to fill in something in the fields.
+  if (mail == "" || password == "") {
+    alert("Please fill in all fields.");
+    return false;
+  }
+  return true;
+}
+
+//This is the function that decides if the user can be logged in or not. This function is runned if the validateForm
+//function is true.
+function login() {
+  if (validateForm()) {
+    var mail1 = document.getElementById("mail").value;
+    var password1 = document.getElementById("password").value;
+
+    //Our test log in is mail: "hej" and password: "hej"
+    if (mail1 == "hej" && password1 == "hej") {
+      alert("Login successful!");
+      window.location.href = "index.html";
+    } else if (mail1 == "hej" && password1 == "hej") {
+      alert("Login successful!");
+      window.location.href = "index.html";
+    } else {
+      alert("Invalid username or password.");
+    }
+  }
+}
