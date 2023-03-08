@@ -19,6 +19,14 @@
   src: url("./assets/Poppins-Bold.ttf");
 }
 
+body {
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+}
+
 :root {
   --blue: #2d598b;
   --darkblue: #191923;
@@ -424,11 +432,19 @@ span {
 }
 
 .LogInBox {
-  padding-left: 330px;
+  /*The div which centers the log in content*/
+  /* padding-left: 330px; */
   padding-top: 100px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
-.LogInInputBox {
+.mail {
+  /*The box where the user types in the email adress*/
   background-color: var(--offwhite);
   width: 420px;
   height: 50px;
@@ -436,10 +452,37 @@ span {
   box-shadow: 5px 5px var(--mildgray);
 }
 
-.LogInText {
-  font-family: "poppins-bold";
-  font-size: 18px;
-  padding-top: 10px;
+.password {
+  /*The box where the user types in the password*/
+  background-color: var(--offwhite);
+  width: 420px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 5px var(--mildgray);
+}
+
+.LogInButton {
+  /* The Log In Button whihch you press to commit your login*/
+  background-color: var(--darkblue);
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 5px var(--mildgray);
+  color: var(--white);
+  text-align: center;
+  margin: 30px auto;
+}
+
+.loginpage {
+  /* This is the div for the whole login page */
+  /*display: none;*/
+  background-color: var(--white);
+  position: absolute;
+  z-index: 1;
+  left: 80px;
+  top: 0;
+  width: 944px;
+  height: 768px;
 }
 
 #Arrow {
@@ -600,16 +643,17 @@ span {
   font-size: 16px;
   padding-left: 10px;
 }
-.Item{
+.Item {
   margin-left: 25px;
   position: relative;
 }
 
-button{
+button {
   border: none;
   background-color: transparent;
 }
-.order_controls {/*control buttons for items in orderbox*/
+.order_controls {
+  /*control buttons for items in orderbox*/
   display: flex;
   align-items: center;
   float: right;
@@ -617,7 +661,8 @@ button{
   padding-bottom: 15px;
 }
 
-#total_order_price{/*Checkout button*/
+#total_order_price {
+  /*Checkout button*/
   z-index: 1;
   border: none;
   font-family: "poppins-semibold";
@@ -628,29 +673,32 @@ button{
   width: 220px;
   position: absolute;
   margin: auto;
-  transform: translate(735px,-70px);
+  transform: translate(735px, -70px);
 
   border-radius: 10px;
 
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-#name_id{
+#name_id {
   font-family: "poppins-semibold";
 }
 
-#serving_size{
+#serving_size {
   margin-top: -10px;
   font-size: 12px;
 }
 
-#item_price{
+#item_price {
   font-family: "poppins-bold";
   margin-top: -5px;
   font-size: 14px;
 }
 
-#remove_item, #remove_item img{
+#remove_item,
+#remove_item img {
   height: 25px;
   width: 25px;
   position: absolute;
@@ -660,7 +708,8 @@ button{
   justify-content: center;
   align-items: center;
 }
-#decrease_item_qty, #increase_item_qty{
+#decrease_item_qty,
+#increase_item_qty {
   background-color: var(--mildgray);
   height: 25px;
   width: 25px;
@@ -668,20 +717,21 @@ button{
   justify-content: center;
   align-items: center;
 }
-#decrease_item_qty{
+#decrease_item_qty {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
-#increase_item_qty{
+#increase_item_qty {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-#decrease_item_qty img, #increase_item_qty img{
+#decrease_item_qty img,
+#increase_item_qty img {
   height: 20px;
   width: 20px;
 }
 
-#item_qty{
+#item_qty {
   background-color: var(--white);
   height: 25px;
   width: 20px;
@@ -690,7 +740,7 @@ button{
   align-items: center;
 }
 
-#total_item_price{
+#total_item_price {
   font-family: "poppins-bold";
   font-size: 18px;
   position: absolute;
@@ -698,7 +748,7 @@ button{
   right: 25px;
 }
 
-#item_qty{
+#item_qty {
   padding-left: 10px;
   padding-right: 10px;
   width: auto;
@@ -712,16 +762,18 @@ hr {
   height: 1px;
   width: 300px;
 }
-span{
+span {
   font-family: "poppins-regular";
 }
 
-.LogInBox{
+.LogInBox {
   margin: 0 auto;
 }
-
-
-#Arrow{
-  padding-left: 100px;
+#login {
+  display: flex;
+  flex-flow: column wrap;
 }
 
+#Arrow {
+  padding-left: 100px;
+}
