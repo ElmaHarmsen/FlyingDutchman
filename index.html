@@ -53,8 +53,22 @@
         </div>
       </div>
 
-      <div id="login_symbol" class="nav_button_div">
-        <div class="nav_button_div">
+      <div class="nav_bottom_buttons">
+        <!-- Account -->
+        <div id="account_symbol" class="nav_button_div">
+          <img src="assets/account_symbol.svg" alt="Account"width="30" height="30" />
+          <p id="nav_header_account"></p>
+          <button class="nav_button" id="account_button" data-text="account-header"></button>
+        </div>
+        <!-- Fetch -->
+        <div id="fetch_symbol" class="nav_button_div">
+          <img src="assets/fetch_key.svg" alt="Wine" />
+          <p id="nav_header_fetch"></p>
+          <button class="nav_button" id="fetch_button" data-text="fetch-header" onclick="generateCombination()"></button>
+        </div>
+
+        <!-- Login -->
+        <div id="login_symbol" class="nav_button_div">
           <img src="assets/login_symbol.svg" alt="Log In" />
           <p id="nav_header_login"></p>
           <button class="nav_button" id="login_button" data-text="login-header"></button>
@@ -82,10 +96,6 @@
         <div class="text-header" id="drink-header">
           <h1 id="page_header_drinks"></h1>
         </div>
-
-        <!-- <div class="text-header" id="login-header">
-          <h1 id="page_header_login"></h1>
-        </div> -->
 
       </div>
       <!-- JSON content -->
@@ -159,12 +169,35 @@
             <p id="login_password"></p>
             <input type="password" class="password" id="password" name="password">
   
-            <input type="button" class="LogInButton" value="Log in" onclick="login()">
+            <input type="button" class="LogInButton" value="Log in" id="login-button">
           
           </form>
   
       </div>
   
     </div>
+
+            <!--Fetch drinks code page-->
+    <div class="text-header", id="fetch-header">
+      <div class="fetchbox">
+            
+        <img src="assets/fetch_symbol.svg" alt="Key" id="key_symbol"width="80" height="80">
+
+        <h1 id="fetch_header"></h1>
+        <!-- Randomize a 4 number code-->
+      <p id="output"></p> <!-- paragraph to display the output of the JavaScript function -->
+
+        <p id="fetch_prompt"></p>
+      </div>
+    </div>
+
+    <!-- Account page -->
+    <div class="text-header", id="account-header">
+      <div class="accountbox">
+            
+        <img src="assets/account_symbol.svg" alt="Key" id="key_symbol"width="80" height="80">
+      </div>
+    </div>
+    
   </body>
 </html>

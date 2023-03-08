@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       HeaderID.forEach((text) => {
         if (text === BtnData) {
-          text.style.display = "block";
+          text.style.display = "flex";
         } else {
           text.style.display = "none";
         }
@@ -153,20 +153,48 @@ function validateForm() {
 
 //This is the function that decides if the user can be logged in or not. This function is runned if the validateForm
 //function is true.
-function login() {
-  if (validateForm()) {
-    var mail1 = document.getElementById("mail").value; 
-    var password1 = document.getElementById("password").value;
+document.addEventListener("DOMContentLoaded", () => {
+  const fetchDrink = document.getElementById("fetch_symbol");
+  const loginPage = document.getElementById("login-header");
+  const loginBtn = document.getElementById("login_symbol");
+  const accBtn = document.getElementById("account_symbol");
+  const accPage = document.getElementById("account-header");
 
-    //Our test log in is mail: "hej" and password: "hej"
-    if (mail1 == "hej" && password1 == "hej") {
-      alert("Login successful!");
-      window.location.href = "index.html";
-    } else if (mail1 == "hej" && password1 == "hej") {
-      alert("Login successful!");
-      window.location.href = "index.html";
-    } else {
-      alert("Invalid username or password.");
-    }
+  function login() {
+    
+    if (validateForm()) {
+      var mail1 = document.getElementById("mail").value; 
+      var password1 = document.getElementById("password").value;
+
+      //Our test log in is mail: "hej" and password: "hej"
+      if (mail1 == "hej" && password1 == "hej") {
+        alert("Login successful!");
+
+        window.location.replace = "index.html";
+        fetchDrink.style.visibility = "visible";
+        loginPage.style.display = "none";
+        loginBtn.style.visibility = "hidden";
+        accBtn.style.visibility = "visible";
+        accPage.style.display = "flex";
+
+      }else {
+        alert("Invalid username or password.");
+      }}}
+  document.getElementById("login-button").addEventListener("click", login);
+});
+
+// Generate a combination of four randomized numbers
+
+function generateCombination() {
+
+  let num1 = Math.floor(Math.random() * 10); // generate a random integer between 0 and 9
+  let num2 = Math.floor(Math.random() * 10);
+  let num3 = Math.floor(Math.random() * 10);
+  let num4 = Math.floor(Math.random() * 10);
+  
+  // Combine the numbers into a string
+  let combination = `${num1}${num2}${num3}${num4}`;
+  
+  document.getElementById("output").innerHTML = combination;
+  
   }
-}

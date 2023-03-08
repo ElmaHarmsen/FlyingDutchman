@@ -88,11 +88,13 @@ button { /*Change this to make buttons visable*/
 }
 
 /* The class for the log in button, since it is placed at the bottom of the nav bar */
-#login_symbol {
-  position: absolute;
-  bottom: 32px;
-  left: 0;
-  right: 0;
+.nav_bottom_buttons {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+
 }
 
 /* The buttons in the nav bar */
@@ -103,10 +105,11 @@ button { /*Change this to make buttons visable*/
   width: 80px;
   height: 70px;
   justify-content: center;
+  text-align: center;
 }
 
 .nav_button_div button{
-  position: absolute;
+  position: fixed;
   height: 70px;
   width: 80px;
   display: flex;
@@ -317,12 +320,7 @@ button { /*Change this to make buttons visable*/
   padding-bottom: 15px;
 }
 
-.LogInBox{ /*The div which centers the log in content*/
-  /* padding-left: 330px; */
-  padding-top: 100px;
-  display: flex;
-  flex-flow:column;
-  align-items: center; 
+.LogInBox, .fetchbox{ /*The div which centers the log in content*/
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -354,22 +352,39 @@ button { /*Change this to make buttons visable*/
   margin: 30px auto;
 } 
 
-#login-header { /* This is the div for the whole login page */
-  /*display: none;*/
+#login-header,#fetch-header,#account-header{ /* This is the div for the whole login and fetch page*/
   background-color: var(--white);
-  position: absolute;
+  position: fixed;
   z-index: 1;
   left: 80px;
   top: 0;
-  width: 944px;
-  height: 768px;
+  width: 92.1875%;
+  height: 100%;
   display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#fetch_symbol {
+  visibility: hidden;
+}
+
+#output{
+  font-family: "poppins-bold";
+  font-size: 70px;
 }
 
 #login{
   display: flex;
   flex-flow: column wrap;
   gap: 10px;
+}
+
+#account_symbol{
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  visibility: hidden;
 }
 
 
