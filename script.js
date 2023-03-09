@@ -1,4 +1,6 @@
 let draggedItem = null;
+let undoOrderItems = [];
+let redoOrderItems = [];
 
 //function update_view intends to update all text in the current language to the newly selected one.
 //for every key in the array of keys in dictionaryList, which we fetch from the dictionary.js file,
@@ -68,8 +70,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const beverageElement = document.querySelector("#db_content");
         beverageData.forEach((beverage) => {
           const beverageContainer = document.createElement("div");
+          beverageContainer.id = `beverageItem_${beverage.nr}`;
+          beverageContainer.draggable = true;
           beverageContainer.innerHTML = `
-          <div class="ButtonItem draggableItem" draggable="true">
+          <div class="ButtonItem">
             <div class="ButtonHeadline">
               <h2 class="ItemName">${beverage.name}</h2>
             </div>
@@ -82,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="ButtonHeadline">
               <h2 class="ItemPrice">${beverage.priceinclvat} SEK</h2>
             </div>
-            <div class="card_button ${beverage.nr === "1001" ? "checked" : ""}">
+            <div class="card_button">
               <button class="add_icon"><img src="assets/add_white_24dp.svg" class="card_button-Icon" alt="Add"></button>
               <button class="check_icon"><img src="assets/check_white_24dp.svg" class="card_button-icon" alt="Check"></button>
             </div>
@@ -90,8 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
           `;
           beverageElement.appendChild(beverageContainer);
 
-          const source = beverageContainer.querySelector(".draggableItem");
-          source.addEventListener("dragstart", (event) => {
+          beverageContainer.addEventListener("dragstart", (event) => {
             draggedItem = event.target;
           });
         });
@@ -102,55 +105,83 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
   });
 
+  function createOrderItem(itemHTMLId) {
+    const orderItemDropped = document.createElement("div");
+    undoOrderItems.push(itemHTMLId);
+    orderItemDropped.id = itemHTMLId;
+    orderItemDropped.innerHTML = `
+    <div class="order_item">
+      <div class="order_item_texts">
+        <div class="order_item_headline">
+          <h2>${draggedItem.querySelector(".ItemName").textContent}</h2>
+        </div>
+        <div class="order_item_bodytext">
+          <p>${draggedItem.querySelector(".ItemCategory").textContent}</p>
+        </div>
+        <div class="order_item_headline">
+          <h2>${draggedItem.querySelector(".ItemPrice").textContent}</h2>
+        </div>
+      </div>
+      <div class="order_item_controls">
+        <button class="controls_remove">
+          <img src="assets/cancel_black_24dp.svg" alt="Remove" />
+        </button>
+        <div class="order_item_headline">
+          <h2>${draggedItem.querySelector(".ItemPrice").textContent}</h2>
+        </div>
+        <div class="controls_adjust-amount">
+          <button id="decrease_item_qty">
+            <img
+              src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg"
+              alt="Subtract"
+            />
+          </button>
+          <span id="item_qty">1</span>
+          <button id="increase_item_qty">
+            <img
+              src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg"
+              alt="Add"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    `;
+    return orderItemDropped;
+  }
+
   target.addEventListener("drop", (event) => {
     event.preventDefault();
     // move dragged element to the selected drop target
     if (event.target.id === "dropTarget") {
-      const orderItemDropped = document.createElement("div");
-      orderItemDropped.innerHTML = `
-      <div class="order_item">
-        <div class="order_item_texts">
-          <div class="order_item_headline">
-            <h2>${draggedItem.querySelector(".ItemName").textContent}</h2>
-          </div>
-          <div class="order_item_bodytext">
-            <p>${draggedItem.querySelector(".ItemCategory").textContent}</p>
-          </div>
-          <div class="order_item_headline">
-            <h2>${draggedItem.querySelector(".ItemPrice").textContent}</h2>
-          </div>
-        </div>
-        <div class="order_item_controls">
-          <button class="controls_remove">
-            <img src="assets/cancel_black_24dp.svg" alt="Remove" />
-          </button>
-          <div class="order_item_headline">
-            <h2>${draggedItem.querySelector(".ItemPrice").textContent}</h2>
-          </div>
-          <div class="controls_adjust-amount">
-            <button id="decrease_item_qty">
-              <img
-                src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg"
-                alt="Subtract"
-              />
-            </button>
-            <span id="item_qty">1</span>
-            <button id="increase_item_qty">
-              <img
-                src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg"
-                alt="Add"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-      `;
+      const orderItemHTML = createOrderItem(
+        "orderItem_" + draggedItem.id.split("_")[1]
+      );
       //item deletes itself from html
       // draggedItem.parentNode.removeChild(draggedItem);
       //item adds iteself to dropTarget as a child
       //instead of draggedItem, create another green html item
-      event.target.appendChild(orderItemDropped);
+      event.target.appendChild(orderItemHTML);
     }
+  });
+
+  const undoBtn = document.getElementById("undo_button");
+  undoBtn.addEventListener("click", () => {
+    const lastAddedItemId = undoOrderItems.pop(); //remove id from array of possible undo-able things
+    if (!lastAddedItemId) return;
+    redoOrderItems.push(lastAddedItemId);
+    const lastAddedItemHTML = document.querySelector(`#${lastAddedItemId}`); //get reference to where the HMTL element is that is to be removed
+    if (!lastAddedItemHTML) return;
+    lastAddedItemHTML.parentNode.removeChild(lastAddedItemHTML); //remove the actual html
+    //up next: make sure beverage cannot get dragged into orderlist twice, instead update amount
+  });
+  const redoBtn = document.getElementById("redo_button");
+  redoBtn.addEventListener("click", () => {
+    const lastRemovedItemId = redoOrderItems.pop(); //remove id from array of possible redo-able things
+    if (!lastRemovedItemId) return;
+    undoOrderItems.push(lastRemovedItemId); //add item to possible undo-able things
+    const storeOrderItems = document.getElementById("dropTarget"); //reference to the container (dropzone) where we can add the HTML again
+    storeOrderItems.appendChild(createOrderItem(lastRemovedItemId)); //where we call the function that generates the element with the id that we got
   });
 });
 
