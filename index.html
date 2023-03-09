@@ -81,6 +81,21 @@
       <!-- Page Title -->
       <div class="title_category">
 
+        <!-- Filter button -->
+        <div class="filter-container">
+          <button id="filter-button">
+            <img src="assets/filter.svg" height="25px" width="25px">
+            <span>Filter</span>
+          </button>
+          <div id="list-container">
+            <ul class="filter-list">
+              <li><input type="checkbox" name="item1" value="Item 1"> <p id="text_gluten"></p> </li>
+              <li><input type="checkbox" name="item2" value="Item 2"> <p id="text_vegan"></p></li>
+              <li><input type="checkbox" name="item3" value="Item 3"> <p id="text_alcfree"></p></li>
+            </ul>
+          </div>
+        </div>
+
         <div class="text-header" id="deal-header">
           <h1 id="page_header"></h1>
         </div>
@@ -170,11 +185,9 @@
             <input type="password" class="password" id="password" name="password">
   
             <input type="button" class="LogInButton" value="Log in" id="login-button">
-          
+        
           </form>
-  
       </div>
-  
     </div>
 
             <!--Fetch drinks code page-->
@@ -195,7 +208,7 @@
     <div class="text-header", id="account-header">
       <div class="accountbox">
             
-        <img src="assets/account_symbol.svg" alt="Key" id="key_symbol"width="80" height="80">
+        <img src="assets/account_symbol.svg" width="80" height="80">
       </div>
     </div>
     

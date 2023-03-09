@@ -198,3 +198,39 @@ function generateCombination() {
   document.getElementById("output").innerHTML = combination;
   
   }
+
+
+  //Filter button code
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterBtn = document.getElementById("filter-button");
+    const listItems = document.getElementById("list-container");
+  
+    filterBtn.addEventListener("click", () => {
+      if(listItems.style.visibility === "hidden"){
+        listItems.style.visibility = "visible";
+        filterBtn.style.backgroundColor = "var(--offwhite)";
+  
+        // add event listener to the document to listen for clicks outside the list container
+        document.addEventListener("click", handleOutsideClick);
+      } else {
+        listItems.style.visibility = "hidden";
+        filterBtn.style.backgroundColor = "";
+  
+        // remove event listener from the document when the list container is hidden
+        document.removeEventListener("click", handleOutsideClick);
+      }
+    });
+  
+    function handleOutsideClick(event) {
+      // check if the clicked element is outside the list container and the filter button
+      if (!listItems.contains(event.target) && !filterBtn.contains(event.target)) {
+        listItems.style.visibility = "hidden";
+        filterBtn.style.backgroundColor = "";
+  
+        // remove event listener from the document when the list container is hidden
+        document.removeEventListener("click", handleOutsideClick);
+      }
+    }
+  });
+  
+

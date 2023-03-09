@@ -101,17 +101,31 @@ const dictionaryList = {
   fetch_header:{
     en: "Your code to the fridge is",
     sv: "Din kod till kylen är",
-    nl: "ELMA TRANSLATE", 
+    nl: "Jouw toegangscode tot de koelkast is", 
   },
   fetch_prompt:{
     en: "This code can only be used once.",
     sv: "Detta är en engångskod.",
-    nl: "ELMA TRANSLATE", 
+    nl: "De code kan één keer gebruikt worden.", 
   },
   nav_header_account:{
     en: "Account",
     sv: "Konto",
-    nl: "ELMA TRANSLATE", 
-  }
-  
+    nl: "Account", 
+  },
+  text_gluten:{
+    en: "Gluten free",
+    sv: "Glutenfritt",
+    nl: "Glutenvrij", 
+  },
+  text_vegan:{
+    en: "Vegan",
+    sv: "Veganskt",
+    nl: "Veganistisch", 
+  },
+  text_alcfree:{
+    en: "Non-alcoholic",
+    sv: "Alkoholfri",
+    nl: "Alcoholvrij", 
+  },
 };
