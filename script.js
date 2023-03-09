@@ -69,32 +69,30 @@ document.addEventListener("DOMContentLoaded", () => {
         beverageData.forEach((beverage) => {
           const beverageContainer = document.createElement("div");
           beverageContainer.innerHTML = `
-        <div class="ButtonItem draggableItem" draggable="true">
-          <div class="ButtonHeadline">
-            <h2>${beverage.name}</h2>
+          <div class="ButtonItem draggableItem" draggable="true">
+            <div class="ButtonHeadline">
+              <h2 class="ItemName">${beverage.name}</h2>
+            </div>
+            <div class="ButtonBodyText">
+              <p>${beverage.countryoforiginlandname}</p>
+              <p class="ItemCategory">${beverage.category}</p>
+              <p>${beverage.packaging}</p>
+              <p>Alc ${beverage.alcoholstrength}</p>
+            </div>
+            <div class="ButtonHeadline">
+              <h2 class="ItemPrice">${beverage.priceinclvat} SEK</h2>
+            </div>
+            <div class="card_button ${beverage.nr === "1001" ? "checked" : ""}">
+              <button class="add_icon"><img src="assets/add_white_24dp.svg" class="card_button-Icon" alt="Add"></button>
+              <button class="check_icon"><img src="assets/check_white_24dp.svg" class="card_button-icon" alt="Check"></button>
+            </div>
           </div>
-          <div class="ButtonBodyText">
-            <p>${beverage.countryoforiginlandname}</p>
-            <p>${beverage.category}</p>
-            <p>${beverage.packaging}</p>
-            <p>Alc ${beverage.alcoholstrength}</p>
-          </div>
-          <div class="ButtonHeadline">
-            <h2>${beverage.priceinclvat} SEK</h2>
-          </div>
-          <div class="card_button ${beverage.nr === "1001" ? "checked" : ""}">
-            <button class="add_icon"><img src="assets/add_white_24dp.svg" class="card_button-Icon" alt="Add"></button>
-            <button class="check_icon"><img src="assets/check_white_24dp.svg" class="card_button-icon" alt="Check"></button>
-          </div>
-        </div>
-        `;
+          `;
           beverageElement.appendChild(beverageContainer);
 
           const source = beverageContainer.querySelector(".draggableItem");
-          console.log(source, beverageContainer);
           source.addEventListener("dragstart", (event) => {
             draggedItem = event.target;
-            console.log("dragging happening");
           });
         });
       }
@@ -108,12 +106,50 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     // move dragged element to the selected drop target
     if (event.target.id === "dropTarget") {
+      const orderItemDropped = document.createElement("div");
+      orderItemDropped.innerHTML = `
+      <div class="order_item">
+        <div class="order_item_texts">
+          <div class="order_item_headline">
+            <h2>${draggedItem.querySelector(".ItemName").textContent}</h2>
+          </div>
+          <div class="order_item_bodytext">
+            <p>${draggedItem.querySelector(".ItemCategory").textContent}</p>
+          </div>
+          <div class="order_item_headline">
+            <h2>${draggedItem.querySelector(".ItemPrice").textContent}</h2>
+          </div>
+        </div>
+        <div class="order_item_controls">
+          <button class="controls_remove">
+            <img src="assets/cancel_black_24dp.svg" alt="Remove" />
+          </button>
+          <div class="order_item_headline">
+            <h2>${draggedItem.querySelector(".ItemPrice").textContent}</h2>
+          </div>
+          <div class="controls_adjust-amount">
+            <button id="decrease_item_qty">
+              <img
+                src="assets/minus_FILL0_wght400_GRAD0_opsz48.svg"
+                alt="Subtract"
+              />
+            </button>
+            <span id="item_qty">1</span>
+            <button id="increase_item_qty">
+              <img
+                src="assets/plus_FILL0_wght400_GRAD0_opsz48.svg"
+                alt="Add"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      `;
       //item deletes itself from html
-      draggedItem.parentNode.removeChild(draggedItem);
+      // draggedItem.parentNode.removeChild(draggedItem);
       //item adds iteself to dropTarget as a child
       //instead of draggedItem, create another green html item
-      event.target.appendChild(draggedItem);
-      console.log("dropped item");
+      event.target.appendChild(orderItemDropped);
     }
   });
 });

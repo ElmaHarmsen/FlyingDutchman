@@ -250,9 +250,24 @@ p {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  gap: 16px;
+  gap: 6px;
   height: auto;
-  padding: 12px;
+  padding: 12px 16px;
+}
+
+.order_item_texts {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.order_item_controls {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+}
+
+.order_item_headline h2 {
+  margin: 0;
 }
 
 .order_button {
@@ -772,6 +787,6 @@ span {
 }
 
 #dropTarget {
-  height: 100px;
-  background-color: greenyellow;
+  height: 100%;
+  overflow-y: scroll;
 }
