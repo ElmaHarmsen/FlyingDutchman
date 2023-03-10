@@ -1,5 +1,10 @@
+//global variable that is the item subjet to drag and drop
 let draggedItem = null;
+
+//global variable that is an array in which the orderItems that are undone are stored
 let undoOrderItems = [];
+
+//global variable that is an array in which the orderItems that are redone are stored
 let redoOrderItems = [];
 
 //function update_view intends to update all text in the current language to the newly selected one.
@@ -61,8 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //from the HTML we select an element by its id db_content, in which we will display the carditem for each beverage.
   //forEach item in the json, which we call beverage, we display an HTML element.
   //the HTML element uses the name beverage to get information.
-  //using appendChild we make beverageContainer the child element of beverageElement (parent), and
-  //with that we give it a place in the HTML.
   fetch("./beverages.json")
     .then((rawData) => rawData.json())
     .then((beverageData) => {
@@ -70,8 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const beverageElement = document.querySelector("#db_content");
         beverageData.forEach((beverage) => {
           const beverageContainer = document.createElement("div");
+          //we assign a dynamic id (beverage 'nr' from the json file) to the HTML element called beverageContainer
+          //the ` ` mean it's a dynamic string, so we say #beverageItem_nr where nr gets fetched from the json file
           beverageContainer.id = `beverageItem_${beverage.nr}`;
-          beverageContainer.draggable = true;
+          beverageContainer.draggable = true; //we specify this div is draggable
           beverageContainer.innerHTML = `
           <div class="ButtonItem">
             <div class="ButtonHeadline">
@@ -92,23 +97,42 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
           </div>
           `;
+          //using appendChild we make beverageContainer the child element of beverageElement (parent), and
+          //with that we give it a place in the HTML
           beverageElement.appendChild(beverageContainer);
 
+          //this is where the DRAG-AND-DROP begins
+          //we listen for the event 'dragstart', which is when the dragging starts, on the beverageContainer element
+          //we give it a parameter, which we call event
           beverageContainer.addEventListener("dragstart", (event) => {
-            draggedItem = event.target;
+            draggedItem = event.target; //we assign the global variable draagedItem to the targeted item
           });
         });
       }
     });
+
+  //this is where the DRAG-AND-DROP continues
+  //we get by id the element in which we want the items to be dropped (dropTarget)
   const target = document.getElementById("dropTarget");
+  //we listen for the event 'dragover', which is when the element is dragged over the dropTarget
   target.addEventListener("dragover", (event) => {
-    event.preventDefault();
+    event.preventDefault(); //we prevent any default actions that may occur
   });
 
+  //we make a function createOrderItem that takes with it a parameter that is ONLY the id of the itemHTML
+  //we create a new html element that we call orderItemDropped
+  //we take the global variable that is the array of undoOrderItems, and push into it our orderitem id,
+  //which is information we get through the parameter that gets used when we call function createOrderItem
+  //we then assign the #id that we got from the parameter to the HTML div that is orderItemDropped
   function createOrderItem(itemHTMLId) {
     const orderItemDropped = document.createElement("div");
     undoOrderItems.push(itemHTMLId);
     orderItemDropped.id = itemHTMLId;
+    //we make the HTML for the orderItemDropped item
+    //inside the HTML we look in the global variable that is draggedItem, which is HTML, where we look into its classes,
+    //and get the textContent from those elements
+    //we basically create a new HTML element where we still use the dynamic content from the original beverage item,
+    //but we only ask for what we want to display in the order item
     orderItemDropped.innerHTML = `
     <div class="order_item">
       <div class="order_item_texts">
@@ -150,38 +174,60 @@ document.addEventListener("DOMContentLoaded", () => {
     return orderItemDropped;
   }
 
+  //this is where the DRAG-AND-DROP ends
+  //in this block we move the dragged element to the selected drop target
+  //we listen for the event 'drop', which is when the element that is dragged is dropped into the dropTarget
   target.addEventListener("drop", (event) => {
     event.preventDefault();
-    // move dragged element to the selected drop target
+    //we have to check if the element gets dropped in the correct place, by checking the HTML element's #id
     if (event.target.id === "dropTarget") {
+      //here we create a const orderItemHTML, where we assign AND CALL the function createOrderItem (from before)
+      //remember, the parameter from this function is the id of the orderitem HTML
+      //the parameter becomes #orderItem_dynamicId (which is also beverage 'nr' in the json)
       const orderItemHTML = createOrderItem(
+        //however, when we get the id from the global variable draggedIten, we only extract the actual number (nr),
+        //which is index 1 in the array because array starts from 0
+        //together it creates #orderItem_nr (just like #beverageItem_nr from the original beverage item)
         "orderItem_" + draggedItem.id.split("_")[1]
       );
-      //item deletes itself from html
-      // draggedItem.parentNode.removeChild(draggedItem);
-      //item adds iteself to dropTarget as a child
-      //instead of draggedItem, create another green html item
+      //we append the child orderItemHTML to the parent which is event.target
+      //with that we give it a place again in the HTML
       event.target.appendChild(orderItemHTML);
     }
   });
 
+  //this is the UNDO-ACTION
+  //we get the button by its #id that will trigger the undo-action
+  //we listen for the event 'click', which is when the button gets clicked
   const undoBtn = document.getElementById("undo_button");
   undoBtn.addEventListener("click", () => {
-    const lastAddedItemId = undoOrderItems.pop(); //remove id from array of possible undo-able things
-    if (!lastAddedItemId) return;
+    //create const lastAddedItemId, and remove the last added id from array of possible undo-able things
+    const lastAddedItemId = undoOrderItems.pop();
+    if (!lastAddedItemId) return; //if there is no id we just return to prevent errors
+    //push into global array of redoOrderItems the id that we just removed from the other array (undoOrderItems)
     redoOrderItems.push(lastAddedItemId);
     const lastAddedItemHTML = document.querySelector(`#${lastAddedItemId}`); //get reference to where the HMTL element is that is to be removed
-    if (!lastAddedItemHTML) return;
+    if (!lastAddedItemHTML) return; //if there is no HTML element we just return to prevent errors
+    //child is lastAddedItemHTML, we ask its parent to remove the child lastAddedItemHTML from the HTML
     lastAddedItemHTML.parentNode.removeChild(lastAddedItemHTML); //remove the actual html
-    //up next: make sure beverage cannot get dragged into orderlist twice, instead update amount
+    //UP NEXT: make sure beverage cannot get dragged into orderlist twice, instead update amount
   });
+
+  //this is the REDO-ACTION
+  //we get the button by its #id that will trigger the redo-action
+  //we listen for the event 'click', which is when the button gets clicked
   const redoBtn = document.getElementById("redo_button");
   redoBtn.addEventListener("click", () => {
-    const lastRemovedItemId = redoOrderItems.pop(); //remove id from array of possible redo-able things
-    if (!lastRemovedItemId) return;
-    undoOrderItems.push(lastRemovedItemId); //add item to possible undo-able things
-    const storeOrderItems = document.getElementById("dropTarget"); //reference to the container (dropzone) where we can add the HTML again
-    storeOrderItems.appendChild(createOrderItem(lastRemovedItemId)); //where we call the function that generates the element with the id that we got
+    //create const lastRemovedItemId, and remove the last added id from array of possible redo-able things
+    const lastRemovedItemId = redoOrderItems.pop();
+    if (!lastRemovedItemId) return; //if there is no id we just return to prevent errors
+    //push into global array of undoOrderItems the id that we just removed from the other array (redoOrderItems)
+    undoOrderItems.push(lastRemovedItemId);
+    //reference to the container (dropTarget) where we can add the HTML again
+    const storeOrderItems = document.getElementById("dropTarget");
+    //parent is storeOrderItems, we ask it to append (add) the child lastRemovedItemId again to the HTML,
+    //and we call the function that generates the element with the id that we got
+    storeOrderItems.appendChild(createOrderItem(lastRemovedItemId));
   });
 });
 
