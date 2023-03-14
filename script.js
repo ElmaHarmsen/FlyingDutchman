@@ -59,13 +59,23 @@ document.addEventListener("DOMContentLoaded", () => {
   //the HTML element uses the name beverage to get information.
   //using appendChild we make beverageContainer the child element of beverageElement (parent), and
   //with that we give it a place in the HTML.
-  fetch("./beverages.json")
+  document.addEventListener("DOMContentLoaded", () => {
+    fetch("./beverages.json")
     .then((rawData) => rawData.json())
     .then((beverageData) => {
       if (beverageData.length) {
         const beverageElement = document.querySelector("#db_content");
         beverageData.forEach((beverage) => {
           const beverageContainer = document.createElement("div");
+          
+          if (beverage.category.includes("Öl")) {
+            beverageContainer.classList.add("beer-category", "beverage-category");
+          } else if (beverage.category.includes("Vin")) {
+            beverageContainer.classList.add("wine-category", "beverage-category");
+          } else{
+            beverageContainer.classList.add("drink-category", "beverage-category");
+          }
+
           beverageContainer.innerHTML = `
         <div class="ButtonItem">
           <div class="ButtonHeadline">
@@ -91,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 });
+  });
 
 //Button to change header, might get expanded
 //DOMContentLoaded had to be implemented
@@ -105,10 +116,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const navBtns = document.querySelectorAll(".nav_button");
   const HeaderID = document.querySelectorAll(".text-header");
 
+  const allItem = document.querySelectorAll(".beverage-category");
+
+
   let prevNavSymbol = null; //keep track of the previously selected symbol element
 
   navBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
+      console.log(allItem);
       const BtnData = document.getElementById(btn.dataset.text);
 
       HeaderID.forEach((text) => {
@@ -119,7 +134,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
       });
-      
+
+      //Shows appropriate items
+      const itemCard = btn.dataset.text.replace("-header", "-category");
+
+      allItem.forEach((item) => {
+        console.log(item);
+        if (item.classList.contains(itemCard)) {
+          item.style.display = "flex";
+        } else {
+          item.style.display = "none";
+        }
+      });
+
       //Select the symbol div based on the button clicked
       const symbolId = btn.dataset.text.replace("-header", "_symbol");
       const NavSymbol = document.getElementById(symbolId);
@@ -168,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //Our test log in is mail: "hej" and password: "hej"
       if (mail1 == "hej" && password1 == "hej") {
-        alert("Login successful!");
+        // alert("Login successful!");
 
         window.location.replace = "index.html";
         fetchDrink.style.visibility = "visible";
