@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ? localStorage.getItem("setLanguage")
       : "sv"
   );
+});
 
   //fetch() fetches the beverages.json file, then formatts the data to a json, then parses it further.
   //we call the data beverageData, and make sure there is something in it by checking the length.
@@ -59,6 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
   //the HTML element uses the name beverage to get information.
   //using appendChild we make beverageContainer the child element of beverageElement (parent), and
   //with that we give it a place in the HTML.
+
+  let allItems; //variable to loop over to display correct items for nav_bar-click
+
   document.addEventListener("DOMContentLoaded", () => {
     fetch("./beverages.json")
     .then((rawData) => rawData.json())
@@ -67,6 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const beverageElement = document.querySelector("#db_content");
         beverageData.forEach((beverage) => {
           const beverageContainer = document.createElement("div");
+
+          //if-statement to give the correct category to the beverage-items. All items get the class=beverage-category
+          //to be able to get looped over for the nav_bar-click.
           
           if (beverage.category.includes("Öl")) {
             beverageContainer.classList.add("beer-category", "beverage-category");
@@ -99,11 +106,15 @@ document.addEventListener("DOMContentLoaded", () => {
           beverageElement.appendChild(beverageContainer);
         });
       }
+
+      // Assign the beverage-items to the variable
+      allItems = document.querySelectorAll(".beverage-category");
     });
 });
-  });
 
-//Button to change header, might get expanded
+
+//Button to "change" page by changing the header as well as displayed items. It also 
+//shows which page we are on by highlighting the corresponding button/tab.
 //DOMContentLoaded had to be implemented
 //This block of code takes in all nav_buttons classes and all text-header classes
 //Then it loops through all the navigation bar buttons when a button is pressed
@@ -112,18 +123,19 @@ document.addEventListener("DOMContentLoaded", () => {
 //If the text-header ID is the same as the button data-text the div is shown, 
 //otherwise it is hidden. Also it changes the background colour by replacing the
 //"-header" tag with the "_symbol" tag to check for all the ID's of the nav_Symbols.
+//It now
+
+
 document.addEventListener("DOMContentLoaded", () => {
+  let prevNavSymbol = document.getElementById("deal_symbol"); //keep track of the previously selected symbol element
+
   const navBtns = document.querySelectorAll(".nav_button");
   const HeaderID = document.querySelectorAll(".text-header");
 
-  const allItem = document.querySelectorAll(".beverage-category");
-
-
-  let prevNavSymbol = null; //keep track of the previously selected symbol element
-
   navBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      console.log(allItem);
+
+      //Shows appropriate header
       const BtnData = document.getElementById(btn.dataset.text);
 
       HeaderID.forEach((text) => {
@@ -132,27 +144,25 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           text.style.display = "none";
         }
-        
       });
 
       //Shows appropriate items
       const itemCard = btn.dataset.text.replace("-header", "-category");
 
-      allItem.forEach((item) => {
-        console.log(item);
-        if (item.classList.contains(itemCard)) {
-          item.style.display = "flex";
-        } else {
-          item.style.display = "none";
-        }
+      allItems.forEach((item) => {
+      if (item.classList.contains(itemCard)) {
+        item.style.display = "flex";
+      } else {
+        item.style.display = "none";
+      }
       });
 
-      //Select the symbol div based on the button clicked
+      //Highlights the appropriate button
       const symbolId = btn.dataset.text.replace("-header", "_symbol");
       const NavSymbol = document.getElementById(symbolId);
 
       if (prevNavSymbol) {//Reset the background color of the previously selected symbol div
-        prevNavSymbol.style.backgroundColor = "";
+        prevNavSymbol.style.backgroundColor = "transparent";
       }
       
       if (NavSymbol) {//Set the background color of the currently selected symbol div

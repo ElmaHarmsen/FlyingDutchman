@@ -141,6 +141,10 @@ button { /*Change this to make buttons visable*/
   display: block;
 }
 
+#deal_symbol{
+  background-color: var(--white);
+}
+
 
 .title_category h1 {
   margin: 0;
@@ -549,10 +553,10 @@ span {
   box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.3);
 }
 
-/* .deal-category{
+ .deal-category{
   display: flex;
 }
 
 .beer-category, .wine-category, .drink-category{
   display: none;
-} */
+} 
