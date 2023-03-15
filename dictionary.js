@@ -14,7 +14,7 @@ const dictionaryList = {
     nl: "Aanbiedingen van vandaag",
   },
   order_header: {
-    en: "Order",
+    en: "Orders",
     sv: "Beställning",
     nl: "Bestelling",
   },
@@ -83,5 +83,50 @@ const dictionaryList = {
     sv: "Logga in",
     nl: "Log in",
   },
-  
+  //manager screen content
+  manager_page_header: {
+    en: "Manage stock",
+    sv: "Förvalta lager",
+    nl: "Beheer voorraad",
+  },
+  manager_order_header: {
+    en: "Orders per table",
+    sv: "Beställningar per bord",
+    nl: "Bestelling per tafel",
+  },
+  manager_nav_header_stock: {
+    en: "Stock",
+    sv: "Lager",
+    nl: "Voorraad",
+  },
+  manager_page_header_stock: {
+    en: "Stock",
+    sv: "Stock",
+    nl: "Stock",
+  },
+  manager_page_header_beers: {
+    en: "Stock: Beers",
+    sv: "Stock: Öler",
+    nl: "Stock: Bieren",
+  },
+  manager_page_header_wines: {
+    en: "Stock: Wines",
+    sv: "Stock: Viner",
+    nl: "Stock: Wijnen",
+  },
+  manager_page_header_drinks: {
+    en: "Stock: Drinks",
+    sv: "Stock: Drinkar",
+    nl: "Stock: Drankjes",
+  },
+  manager_button_refill: {
+    en: "Refill",
+    sv: "Påfyllning",
+    nl: "Bijvullen",
+  },
+  manager_button_stock: {
+    en: "Stock:",
+    sv: "Stock:",
+    nl: "Voorraad:",
+  },
 };
