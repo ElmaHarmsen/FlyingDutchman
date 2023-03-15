@@ -128,4 +128,35 @@ const dictionaryList = {
     sv: "Alkoholfri",
     nl: "Alcoholvrij", 
   },
+  account_header:{
+    en: "Your account",
+    sv: "Ditt konto",
+    nl: "Jouw rekening",
+  },
+  balance:{
+    en: "Balance:",
+    sv: "Ditt saldo:",
+    // nl: ELMA WRITE HERE
+  },
+  balance_instructions:{
+    en: "To add balance to your account, type the amount below, press submit and scan the barcode to recieve the payment oprions.",
+    sv: "För att fylla på pengar på ditt konto, skriv in beloppet nedan, tryck på ladda upp och scanna QR-koden för att få betalningsalternativen."
+    // nl: ELMA WRITE HERE
+  },
+  add_balance:{
+    en: "Add balance",
+    sv: "Fyll på saldo",
+    // nl: ELMA WRITE HERE
+  },
+  submitbutton:{
+    en: "Submit",
+    sv: "Ladda upp",
+    // nl: ELMA WRITE HERE
+  },
+  logout:{
+    en: "Log out",
+    sv: "Logga ut",
+    // nl: ELMA WRITE HERE
+  }
+
 };
