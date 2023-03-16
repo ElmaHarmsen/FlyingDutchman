@@ -83,5 +83,9 @@ const dictionaryList = {
     sv: "Logga in",
     nl: "Log in",
   },
-  
+  page_header_checkout: {
+    en: "Check out",
+    sv: "Kassa",
+    nl: "Uitchecken"
+  }
 };
