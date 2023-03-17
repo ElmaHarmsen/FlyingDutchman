@@ -44,9 +44,9 @@ const dictionaryList = {
     nl: "Drankjes",
   },
   nav_header_login: {
-    en: "Sign in",
+    en: "Log in",
     sv: "Logga in",
-    nl: "Log in",
+    nl: "Inloggen",
   },
   order_pay: {
     en: "Pay",
@@ -79,9 +79,54 @@ const dictionaryList = {
     nl: "Drankjes",
   },
   page_header_login: {
-    en: "Sign in",
+    en: "Log in",
     sv: "Logga in",
-    nl: "Log in",
+    nl: "Inloggen",
+  },
+  loginpage_header: {
+    en: "Log in",
+    sv: "Logga in",
+    nl: "Inloggen",
+  },
+  login_password: {
+    en: "Password",
+    sv: "Lösenord",
+    nl: "Wachtwoord",
+  },
+  nav_header_fetch: {
+    en: "Fetch drink",
+    sv: "Hämta dryck",
+    nl: "Drank halen",
+  },
+  fetch_header: {
+    en: "Your code to the fridge is",
+    sv: "Din kod till kylen är",
+    nl: "Jouw toegangscode tot de koelkast is",
+  },
+  fetch_prompt: {
+    en: "This code can only be used once.",
+    sv: "Detta är en engångskod.",
+    nl: "De code kan één keer gebruikt worden.",
+  },
+  nav_header_account: {
+    en: "Account",
+    sv: "Konto",
+    nl: "Account",
+  },
+  text_gluten: {
+    en: "Gluten free",
+    sv: "Glutenfritt",
+    nl: "Glutenvrij",
+  },
+  text_vegan: {
+    en: "Vegan",
+    sv: "Veganskt",
+    nl: "Veganistisch",
+  },
+  text_alcfree: {
+    en: "Non-alcoholic",
+    sv: "Alkoholfri",
+    nl: "Alcoholvrij",
   },
   //manager screen content
   manager_page_header: {

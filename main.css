@@ -88,8 +88,7 @@ li {
   position: fixed;
   top: 0;
   left: 0;
-  overflow-x: hidden;
-  float: left;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 1000px) {
@@ -109,16 +108,13 @@ li {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  gap: 24px;
 }
 
-/* The class for the log in button, since it is placed at the bottom of the nav bar */
-.nav_login {
+.nav_bottom_buttons {
   display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
+  flex-flow: column nowrap;
   position: absolute;
-  bottom: 32px;
+  bottom: 24px;
 }
 
 /* The buttons in the nav bar */
@@ -126,17 +122,27 @@ li {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   width: 80px;
-  height: 50px;
+  height: 70px;
 }
 
 .nav_button_div button {
-  position: absolute;
+  position: fixed;
   height: 70px;
   width: 80px;
   display: flex;
   align-items: center;
-  transform: translate(0px, -20px);
+}
+
+@media screen and (min-width: 1000px) {
+  .nav_button_div {
+    width: 100px;
+  }
+  .nav_button_div button {
+    width: 100px;
+  }
 }
 
 /*customer screen deal button visible, manager screen stock button visible */
@@ -809,4 +815,140 @@ span {
   #dropTarget {
     display: none;
   }
+}
+
+/*login stuff */
+.LogInBox,
+.fetchbox {
+  /*The div which centers the log in content*/
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.mail {
+  /*The box where the user types in the email adress*/
+  background-color: var(--offwhite);
+  width: 420px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 5px var(--mildgray);
+}
+.password {
+  /*The box where the user types in the password*/
+  background-color: var(--offwhite);
+  width: 420px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 5px var(--mildgray);
+}
+
+.LogInButton {
+  /* The Log In Button whihch you press to commit your login*/
+  background-color: var(--darkblue);
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 5px var(--mildgray);
+  color: var(--white);
+  text-align: center;
+  margin: 30px auto;
+}
+
+#login-header,
+#fetch-header,
+#account-header {
+  /* This is the div for the whole login and fetch page*/
+  background-color: var(--white);
+  position: fixed;
+  z-index: 1;
+  left: 80px;
+  top: 0;
+  width: 92.1875%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#fetch_symbol {
+  visibility: hidden;
+  text-align: center;
+}
+
+#login {
+  gap: 10px;
+}
+
+#account_symbol {
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  visibility: hidden;
+}
+
+/* #fetch_symbol,
+#login,
+#account_symbol {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+} */
+
+/*filter stuff */
+.filter-container {
+  display: flex;
+  position: absolute;
+  right: 24px;
+  top: 32px;
+  height: auto;
+  width: 120px;
+  justify-content: center;
+}
+#filter-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  width: 100%;
+}
+.filter-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 35px;
+  text-align: center;
+  padding-left: 10px;
+}
+.filter-list li {
+  display: inline-flex;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  align-items: center;
+}
+
+.filter-list li p {
+  font-size: 10px;
+  color: black;
+}
+#list-container {
+  background-color: var(--white);
+  width: 100%;
+  border-radius: 10px;
+  visibility: hidden;
+  -webkit-box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.3);
+}
+
+.deal-category {
+  display: flex;
+}
+
+.beer-category,
+.wine-category,
+.drink-category {
+  display: none;
 }
