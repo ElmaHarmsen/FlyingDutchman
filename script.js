@@ -94,7 +94,10 @@ document.addEventListener("DOMContentLoaded", () => {
               "beverage-category"
             );
           } else {
-            beverageContainer.classList.add("beverage-category");
+            beverageContainer.classList.add(
+              "deal-category",
+              "beverage-category"
+            );
           }
           //we assign a dynamic id (beverage 'nr' from the json file) to the HTML element called beverageContainer
           //the ` ` mean it's a dynamic string, so we say #beverageItem_nr where nr gets fetched from the json file
@@ -291,6 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const itemCard = btn.dataset.text.replace("-header", "-category");
 
       allItems.forEach((item) => {
+        console.log(item);
         if (item.classList.contains(itemCard)) {
           item.style.display = "flex";
         } else {
