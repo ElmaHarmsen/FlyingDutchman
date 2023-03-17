@@ -129,4 +129,29 @@ const dictionaryList = {
     sv: "Stock:",
     nl: "Voorraad:",
   },
+  manager_orders_table_1: {
+    en: "Table 1",
+    sv: "Bord 1",
+    nl: "Tafel 1",
+  },
+  manager_orders_order: {
+    en: "Order:",
+    sv: "Beställning:",
+    nl: "Bestelling:",
+  },
+  manager_orders_received: {
+    en: "Received:",
+    sv: "Mottagen:",
+    nl: "Ontvangen:",
+  },
+  manager_orders_payment: {
+    en: "Payment:",
+    sv: "Betalning:",
+    nl: "Betaling:",
+  },
+  manager_orders_payment_type: {
+    en: "Paid separately",
+    sv: "Betalade separat",
+    nl: "Apart betaald",
+  },
 };
