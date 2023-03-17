@@ -95,6 +95,11 @@ document.addEventListener("DOMContentLoaded", () => {
               <button class="add_icon"><img src="assets/add_white_24dp.svg" class="card_button-Icon" alt="Add"></button>
               <button class="check_icon"><img src="assets/check_white_24dp.svg" class="card_button-icon" alt="Check"></button>
             </div>
+            <div class="manager_card_button">
+              <button class="button_stock"><h2>Stock: 20</h2></button>
+              <button class="button_refill"><h2>Restock</h2></button>
+              <button class="button_disable"><img src="assets/visibility_off_black_24dp.svg" alt="visibility-off"></button>
+            </div>
           </div>
           `;
           //using appendChild we make beverageContainer the child element of beverageElement (parent), and
@@ -249,8 +254,10 @@ document.addEventListener("DOMContentLoaded", () => {
   navBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const BtnData = document.getElementById(btn.dataset.text);
+      console.log(btn.dataset.text);
 
       HeaderID.forEach((text) => {
+        console.log(text);
         if (text === BtnData) {
           text.style.display = "block";
         } else {

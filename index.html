@@ -36,6 +36,16 @@
             data-text="deal-header"
           ></button>
         </div>
+        <!--Manager stock-->
+        <div id="stock_symbol" class="nav_button_div">
+          <img src="assets/inventory_black_24dp.svg" alt="Stock" />
+          <p id="manager_nav_header_stock"></p>
+          <button
+            class="nav_button"
+            id="stock_button"
+            data-text="deal-header"
+          ></button>
+        </div>
         <!--Beers-->
         <div id="beer_symbol" class="nav_button_div">
           <img src="assets/beer_symbol.svg" alt="Beers" />
@@ -83,18 +93,22 @@
       <div class="title_category">
         <div class="text-header" id="deal-header">
           <h1 id="page_header"></h1>
+          <h1 id="manager_page_header"></h1>
         </div>
 
         <div class="text-header" id="beer-header">
           <h1 id="page_header_beers"></h1>
+          <h1 id="manager_page_header_beers"></h1>
         </div>
 
         <div class="text-header" id="wine-header">
           <h1 id="page_header_wines"></h1>
+          <h1 id="manager_page_header_wines"></h1>
         </div>
 
         <div class="text-header" id="drink-header">
           <h1 id="page_header_drinks"></h1>
+          <h1 id="manager_page_header_drinks"></h1>
         </div>
       </div>
       <!-- JSON content -->
@@ -105,7 +119,8 @@
     <div class="page_order">
       <!--Orderbox header-->
       <div class="order_header">
-        <h1 id="order_header"></h1>
+        <h1 id="order_header" class="customer_order_header"></h1>
+        <h1 id="manager_order_header" class="manager_order_header"></h1>
         <div class="controls_undo-redo">
           <button id="undo_button">
             <img src="assets/undo_FILL0_wght400_GRAD0_opsz48.svg" alt="Undo" />
@@ -118,6 +133,35 @@
       <!--Orderbox items-->
       <div class="order_box">
         <div class="dropzone" id="dropTarget"></div>
+        <div class="manager_order_view">
+          <h2 id="manager_orders_table_1"></h2>
+          <div class="manager_order">
+            <div class="manager_order_section">
+              <p id="manager_orders_order"></p>
+              <ul>
+                <li>Beer - 3x</li>
+                <li>Wine - 1x</li>
+              </ul>
+              <p><b>200 SEK</b></p>
+            </div>
+            <div class="manager_order_section">
+              <p id="manager_orders_received"></p>
+              <ul>
+                <li>Drinks - 3x</li>
+                <li>Wine - 1x</li>
+                <li>Beer - 3x</li>
+              </ul>
+              <p><b>300 SEK</b></p>
+            </div>
+            <div class="manager_order_section">
+              <p id="manager_orders_payment"></p>
+              <ul>
+                <li id="manager_orders_payment_type"></li>
+              </ul>
+              <p><b>500 SEK</b></p>
+            </div>
+          </div>
+        </div>
         <!--Page order pay button-->
         <button class="order_button">
           <h2 id="order_pay"></h2>

@@ -45,11 +45,35 @@ h3 {
   color: var(--darkblue);
 }
 
-p {
+p,
+li {
   font-family: "poppins-regular";
   font-size: 14px;
   color: var(--darkblue);
   margin: 0;
+}
+
+@media screen and (min-width: 1000px) {
+  h1 {
+    font-family: "poppins-semibold";
+    font-size: 36px;
+    color: var(--darkblue);
+  }
+
+  h2,
+  h3 {
+    font-family: "poppins-medium";
+    font-size: 18px;
+    color: var(--darkblue);
+  }
+
+  p,
+  li {
+    font-family: "poppins-medium";
+    font-size: 16px;
+    color: var(--darkblue);
+    margin: 0;
+  }
 }
 
 /* Nav Bar */
@@ -68,6 +92,12 @@ p {
   float: left;
 }
 
+@media screen and (min-width: 1000px) {
+  .nav_bar {
+    width: 100px;
+  }
+}
+
 /* The text style in the nav bar */
 .nav_languages {
   font-size: 16px;
@@ -84,10 +114,11 @@ p {
 
 /* The class for the log in button, since it is placed at the bottom of the nav bar */
 .nav_login {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
   position: absolute;
   bottom: 32px;
-  left: 0;
-  right: 0;
 }
 
 /* The buttons in the nav bar */
@@ -108,14 +139,42 @@ p {
   transform: translate(0px, -20px);
 }
 
+/*customer screen deal button visible, manager screen stock button visible */
+#deal_symbol {
+  display: flex;
+}
+#stock_symbol {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  #deal_symbol {
+    display: none;
+  }
+  #stock_symbol {
+    display: flex;
+  }
+}
+
 /* The page content div */
 .page_content {
   position: relative;
   left: calc(80px + 24px);
   top: 0;
-  width: 600px;
+  width: calc(100% - 300px - 80px - 24px - 24px - 24px);
   height: 100%;
   overflow: hidden;
+}
+
+@media screen and (min-width: 1000px) {
+  .page_content {
+    position: relative;
+    left: calc(100px + 32px);
+    top: 0;
+    width: calc(100% - 600px - 100px - 32px - 32px - 32px);
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
 .title_category {
@@ -123,29 +182,61 @@ p {
   margin-bottom: 24px;
   height: 49px;
 }
+.title_category h1 {
+  margin: 0;
+}
 
 .text-header {
   position: absolute;
   display: none;
 }
-#deal-header {
+
+#deal-header,
+#page_header,
+#page_header_beers,
+#page_header_wines,
+#page_header_drinks {
   display: block;
 }
 
-.title_category h1 {
-  margin: 0;
+#manager_page_header,
+#manager_page_header_beers,
+#manager_page_header_wines,
+#manager_page_header_drinks {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  #page_header,
+  #page_header_beers,
+  #page_header_wines,
+  #page_header_drinks {
+    display: none;
+  }
+
+  #manager_page_header,
+  #manager_page_header_beers,
+  #manager_page_header_wines,
+  #manager_page_header_drinks {
+    display: block;
+  }
 }
 
 .item_grid {
   align-content: flex-start;
   background-color: white;
-  height: 669px;
-  margin-bottom: 32px;
+  height: calc(100vh - 97px - 32px);
   border-radius: 10px;
   display: flex;
   flex-flow: row wrap;
   gap: 16px;
   overflow-y: scroll;
+}
+
+@media screen and (min-width: 1000px) {
+  .item_grid {
+    gap: 24px;
+  }
 }
 
 .card_button {
@@ -158,6 +249,46 @@ p {
   background-color: var(--blue);
   border-radius: 20px;
   text-align: center;
+}
+
+.manager_card_button {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .card_button {
+    display: none;
+  }
+  .manager_card_button {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .button_stock,
+  .button_refill {
+    width: calc(110px + (2 * 12px));
+    height: calc(32px + (2 * 6px));
+    border-radius: 20px;
+    text-align: center;
+  }
+  .button_stock h2,
+  .button_refill h2 {
+    color: var(--white);
+    font-family: "poppins-medium";
+    margin: 0;
+  }
+  .button_stock {
+    background-color: var(--darkblue);
+  }
+  .button_refill {
+    background-color: var(--blue);
+  }
+  .button_disable {
+    color: var(--darkblue);
+  }
 }
 
 .card_button-icon {
@@ -185,8 +316,8 @@ p {
   background-color: var(--darkblue);
 }
 
+/* The class for the whole button */
 .ButtonItem {
-  /* The class for the whole button */
   background-color: var(--offwhite);
   height: auto;
   border-radius: 10px;
@@ -199,21 +330,27 @@ p {
     rgba(239, 241, 243, 0.33) 0px 3px 6px;
 }
 
+@media screen and (min-width: 1000px) {
+  .ButtonItem {
+    width: 190px;
+  }
+}
+
+/* The text that the product names are written in, such as "Heineken". Also, the prize should be written in this text. This should be connected to a database with the different beverages in some way */
 .ButtonHeadline {
-  /* The text that the product names are written in, such as "Heineken". Also, the prize should be written in this text. This should be connected to a database with the different beverages in some way */
   text-align: center;
 }
 
+/* This is the styling of the text that describes every product (i.e., alc %). This should be connected to a database */
 .ButtonBodyText {
-  /* This is the styling of the text that describes every product (i.e., alc %). This should be connected to a database */
   text-align: center;
   display: flex;
   flex-flow: column nowrap;
   gap: 6px;
 }
 
+/* The button for adding an item into the order */
 .AddButton {
-  /* The button for adding an item into the order */
   background-color: var(--blue);
 }
 
@@ -222,7 +359,17 @@ p {
   right: 24px;
   top: 0;
   width: 300px;
-  height: 100%;
+  height: 100vh;
+}
+
+@media screen and (min-width: 1000px) {
+  .page_order {
+    position: fixed;
+    right: 32px;
+    top: 0;
+    width: 600px;
+    height: 100%;
+  }
 }
 
 .order_header {
@@ -233,6 +380,29 @@ p {
   gap: 16px;
   margin-top: 24px;
   margin-bottom: 24px;
+  height: 49px;
+}
+
+.customer_order_header,
+.customer_page_header {
+  display: block;
+}
+
+.manager_order_header,
+.manager_page_header {
+  display: none;
+}
+
+/* change viewport later to 2560 */
+@media screen and (min-width: 1000px) {
+  .customer_order_header,
+  .customer_page_header {
+    display: none;
+  }
+  .manager_order_header,
+  .manager_page_header {
+    display: block;
+  }
 }
 
 .order_box {
@@ -241,9 +411,38 @@ p {
   justify-content: space-between;
   overflow-y: scroll;
   background-color: var(--offwhite);
-  height: 670px;
+  height: calc(100vh - 97px - 32px);
   width: 300px;
   border-radius: 10px;
+}
+
+.manager_order_view {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .order_box {
+    width: 600px;
+  }
+  .manager_order_view {
+    display: block;
+    padding: 24px 16px;
+  }
+  .manager_order_view h2 {
+    margin: 0;
+  }
+  .manager_order {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 16px 12px;
+  }
+  .manager_order .manager_order_section {
+    display: flex;
+    flex-flow: column nowrap;
+    width: calc(100% / 3);
+  }
 }
 
 .order_item {
@@ -285,11 +484,16 @@ p {
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+@media screen and (min-width: 1000px) {
+  .order_button {
+    display: none;
+  }
+}
+
 .order_button h2 {
   color: var(--white);
 }
 
-/* A way to get the h3 inside the class */
 .item_text h3 {
   margin: 0;
 }
@@ -310,6 +514,12 @@ p {
   height: 32px;
 }
 
+@media screen and (min-width: 1000px) {
+  .controls_undo-redo {
+    display: none;
+  }
+}
+
 .order_header h1 {
   margin: 0;
 }
@@ -320,110 +530,17 @@ p {
 }
 
 button {
-  /*Change this to make buttons visable*/
   border: none;
   background-color: transparent;
 }
+
+/*control buttons for items in orderbox*/
 .order_controls {
-  /*control buttons for items in orderbox*/
   display: flex;
   align-items: center;
   float: right;
   padding-right: 15px;
   padding-bottom: 15px;
-}
-
-#total_order_price {
-  /*Checkout button*/
-  z-index: 1;
-  border: none;
-  font-family: "poppins-semibold";
-  font-size: 14px;
-  color: var(--white);
-  background-color: var(--blue);
-  height: 50px;
-  width: 220px;
-  position: absolute;
-  margin: auto;
-  transform: translate(735px, -70px);
-
-  border-radius: 10px;
-
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
-#name_id {
-  font-family: "poppins-semibold";
-}
-
-#serving_size {
-  margin-top: -10px;
-  font-size: 12px;
-}
-
-#item_price {
-  font-family: "poppins-bold";
-  margin-top: -5px;
-  font-size: 14px;
-}
-
-#remove_item,
-#remove_item img {
-  height: 25px;
-  width: 25px;
-  position: absolute;
-  top: -5px;
-  right: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#decrease_item_qty,
-#increase_item_qty {
-  background-color: var(--mildgray);
-  height: 25px;
-  width: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#decrease_item_qty {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-#increase_item_qty {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-#decrease_item_qty img,
-#increase_item_qty img {
-  height: 20px;
-  width: 20px;
-}
-
-#item_qty {
-  background-color: var(--white);
-  height: 25px;
-  width: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#total_item_price {
-  font-family: "poppins-bold";
-  font-size: 18px;
-  position: absolute;
-  top: 40px;
-  right: 25px;
-}
-
-#item_qty {
-  padding-left: 10px;
-  padding-right: 10px;
-  width: auto;
 }
 
 hr {
@@ -438,9 +555,8 @@ span {
   font-family: "poppins-regular";
 }
 
+/*The div which centers the log in content*/
 .LogInBox {
-  /*The div which centers the log in content*/
-  /* padding-left: 330px; */
   padding-top: 100px;
   display: flex;
   flex-flow: column;
@@ -450,8 +566,8 @@ span {
   align-items: center;
 }
 
+/*The box where the user types in the email adress*/
 .mail {
-  /*The box where the user types in the email adress*/
   background-color: var(--offwhite);
   width: 420px;
   height: 50px;
@@ -459,8 +575,8 @@ span {
   box-shadow: 5px 5px var(--mildgray);
 }
 
+/*The box where the user types in the password*/
 .password {
-  /*The box where the user types in the password*/
   background-color: var(--offwhite);
   width: 420px;
   height: 50px;
@@ -468,8 +584,8 @@ span {
   box-shadow: 5px 5px var(--mildgray);
 }
 
+/* The Log In Button whihch you press to commit your login*/
 .LogInButton {
-  /* The Log In Button whihch you press to commit your login*/
   background-color: var(--darkblue);
   width: 200px;
   height: 50px;
@@ -480,9 +596,8 @@ span {
   margin: 30px auto;
 }
 
+/* This is the div for the whole login page */
 .loginpage {
-  /* This is the div for the whole login page */
-  /*display: none;*/
   background-color: var(--white);
   position: absolute;
   z-index: 1;
@@ -518,106 +633,14 @@ button {
   border: none;
   background-color: transparent;
 }
+
+/*control buttons for items in orderbox*/
 .order_controls {
-  /*control buttons for items in orderbox*/
   display: flex;
   align-items: center;
   float: right;
   padding-right: 15px;
   padding-bottom: 15px;
-}
-
-#total_order_price {
-  /*Checkout button*/
-  z-index: 1;
-  border: none;
-  font-family: "poppins-semibold";
-  font-size: 14px;
-  color: var(--white);
-  background-color: var(--blue);
-  height: 50px;
-  width: 220px;
-  position: absolute;
-  margin: auto;
-  transform: translate(735px, -70px);
-
-  border-radius: 10px;
-
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
-#name_id {
-  font-family: "poppins-semibold";
-}
-
-#serving_size {
-  margin-top: -10px;
-  font-size: 12px;
-}
-
-#item_price {
-  font-family: "poppins-bold";
-  margin-top: -5px;
-  font-size: 14px;
-}
-
-#remove_item,
-#remove_item img {
-  height: 25px;
-  width: 25px;
-  position: absolute;
-  top: -5px;
-  right: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#decrease_item_qty,
-#increase_item_qty {
-  background-color: var(--mildgray);
-  height: 25px;
-  width: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#decrease_item_qty {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-#increase_item_qty {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-#decrease_item_qty img,
-#increase_item_qty img {
-  height: 20px;
-  width: 20px;
-}
-
-#item_qty {
-  background-color: var(--white);
-  height: 25px;
-  width: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#total_item_price {
-  font-family: "poppins-bold";
-  font-size: 18px;
-  position: absolute;
-  top: 40px;
-  right: 25px;
-}
-
-#item_qty {
-  padding-left: 10px;
-  padding-right: 10px;
-  width: auto;
 }
 
 hr {
@@ -634,10 +657,6 @@ span {
 
 .LogInBox {
   margin: 0 auto;
-}
-
-#Arrow {
-  padding-left: 100px;
 }
 
 .ItemNameOrder {
@@ -660,8 +679,9 @@ button {
   border: none;
   background-color: transparent;
 }
+
+/*control buttons for items in orderbox*/
 .order_controls {
-  /*control buttons for items in orderbox*/
   display: flex;
   align-items: center;
   float: right;
@@ -669,8 +689,8 @@ button {
   padding-bottom: 15px;
 }
 
+/*Checkout button*/
 #total_order_price {
-  /*Checkout button*/
   z-index: 1;
   border: none;
   font-family: "poppins-semibold";
@@ -682,9 +702,7 @@ button {
   position: absolute;
   margin: auto;
   transform: translate(735px, -70px);
-
   border-radius: 10px;
-
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -782,11 +800,13 @@ span {
   flex-flow: column wrap;
 }
 
-#Arrow {
-  padding-left: 100px;
-}
-
 #dropTarget {
   height: 100%;
   overflow-y: scroll;
+}
+
+@media screen and (min-width: 1000px) {
+  #dropTarget {
+    display: none;
+  }
 }
