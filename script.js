@@ -7,6 +7,9 @@ let undoOrderItems = [];
 //global variable that is an array in which the orderItems that are redone are stored
 let redoOrderItems = [];
 
+//variable to loop over to display correct items for nav_bar-click
+let allItems;
+
 //function update_view intends to update all text in the current language to the newly selected one.
 //for every key in the array of keys in dictionaryList, which we fetch from the dictionary.js file,
 //and we declare a languageString and set it to the current language.
@@ -73,6 +76,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const beverageElement = document.querySelector("#db_content");
         beverageData.forEach((beverage) => {
           const beverageContainer = document.createElement("div");
+          //if-statement to give the correct category to the beverage-items. All items get the class=beverage-category
+          //to be able to get looped over for the nav_bar-click.
+          if (beverage.category.includes("Öl")) {
+            beverageContainer.classList.add(
+              "beer-category",
+              "beverage-category"
+            );
+          } else if (beverage.category.includes("Vin")) {
+            beverageContainer.classList.add(
+              "wine-category",
+              "beverage-category"
+            );
+          } else if (beverage.category.includes("sprit")) {
+            beverageContainer.classList.add(
+              "drink-category",
+              "beverage-category"
+            );
+          } else {
+            beverageContainer.classList.add(
+              "deal-category",
+              "beverage-category"
+            );
+          }
           //we assign a dynamic id (beverage 'nr' from the json file) to the HTML element called beverageContainer
           //the ` ` mean it's a dynamic string, so we say #beverageItem_nr where nr gets fetched from the json file
           beverageContainer.id = `beverageItem_${beverage.nr}`;
@@ -113,6 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
             draggedItem = event.target; //we assign the global variable draagedItem to the targeted item
           });
         });
+        // Assign the beverage-items to the variable
+        allItems = document.querySelectorAll(".beverage-category");
       }
     });
 
@@ -246,37 +274,46 @@ document.addEventListener("DOMContentLoaded", () => {
 //otherwise it is hidden. Also it changes the background colour by replacing the
 //"-header" tag with the "_symbol" tag to check for all the ID's of the nav_Symbols.
 document.addEventListener("DOMContentLoaded", () => {
+  let prevNavSymbol = document.getElementById("deal_symbol"); //keep track of the previously selected symbol element
   const navBtns = document.querySelectorAll(".nav_button");
   const HeaderID = document.querySelectorAll(".text-header");
-
-  let prevNavSymbol = null; //keep track of the previously selected symbol element
 
   navBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const BtnData = document.getElementById(btn.dataset.text);
-      console.log(btn.dataset.text);
 
       HeaderID.forEach((text) => {
-        console.log(text);
         if (text === BtnData) {
-          text.style.display = "block";
+          text.style.display = "flex";
         } else {
           text.style.display = "none";
         }
       });
 
-      //Select the symbol div based on the button clicked
+      //Shows appropriate items
+      const itemCard = btn.dataset.text.replace("-header", "-category");
+
+      allItems.forEach((item) => {
+        console.log(item);
+        if (item.classList.contains(itemCard)) {
+          item.style.display = "flex";
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      //Highlights the appropriate button
       const symbolId = btn.dataset.text.replace("-header", "_symbol");
       const NavSymbol = document.getElementById(symbolId);
 
       if (prevNavSymbol) {
         //Reset the background color of the previously selected symbol div
-        prevNavSymbol.style.backgroundColor = "";
+        prevNavSymbol.style.backgroundColor = "transparent";
       }
 
       if (NavSymbol) {
         //Set the background color of the currently selected symbol div
-        NavSymbol.style.backgroundColor = "white";
+        NavSymbol.style.backgroundColor = "var(--white)";
       }
 
       prevNavSymbol = NavSymbol; //update the previously selected symbol element
@@ -300,20 +337,82 @@ function validateForm() {
 
 //This is the function that decides if the user can be logged in or not. This function is runned if the validateForm
 //function is true.
-function login() {
-  if (validateForm()) {
-    var mail1 = document.getElementById("mail").value;
-    var password1 = document.getElementById("password").value;
+document.addEventListener("DOMContentLoaded", () => {
+  const fetchDrink = document.getElementById("fetch_symbol");
+  const loginPage = document.getElementById("login-header");
+  const loginBtn = document.getElementById("login_symbol");
+  const accBtn = document.getElementById("account_symbol");
+  const accPage = document.getElementById("account-header");
 
-    //Our test log in is mail: "hej" and password: "hej"
-    if (mail1 == "hej" && password1 == "hej") {
-      alert("Login successful!");
-      window.location.href = "index.html";
-    } else if (mail1 == "hej" && password1 == "hej") {
-      alert("Login successful!");
-      window.location.href = "index.html";
-    } else {
-      alert("Invalid username or password.");
+  function login() {
+    if (validateForm()) {
+      var mail1 = document.getElementById("mail").value;
+      var password1 = document.getElementById("password").value;
+
+      //Our test log in is mail: "hej" and password: "hej"
+      if (mail1 == "hej" && password1 == "hej") {
+        // alert("Login successful!");
+
+        window.location.replace = "index.html";
+        fetchDrink.style.visibility = "visible";
+        loginPage.style.display = "none";
+        loginBtn.style.visibility = "hidden";
+        accBtn.style.visibility = "visible";
+        accPage.style.display = "flex";
+      } else {
+        alert("Invalid username or password.");
+      }
     }
   }
+  document.getElementById("login-button").addEventListener("click", login);
+});
+
+// Generate a combination of four randomized numbers
+
+function generateCombination() {
+  let num1 = Math.floor(Math.random() * 10); // generate a random integer between 0 and 9
+  let num2 = Math.floor(Math.random() * 10);
+  let num3 = Math.floor(Math.random() * 10);
+  let num4 = Math.floor(Math.random() * 10);
+
+  // Combine the numbers into a string
+  let combination = `${num1}${num2}${num3}${num4}`;
+
+  document.getElementById("output").innerHTML = combination;
 }
+
+//Filter button code
+document.addEventListener("DOMContentLoaded", () => {
+  const filterBtn = document.getElementById("filter-button");
+  const listItems = document.getElementById("list-container");
+
+  filterBtn.addEventListener("click", () => {
+    if (listItems.style.visibility === "hidden") {
+      listItems.style.visibility = "visible";
+      filterBtn.style.backgroundColor = "var(--offwhite)";
+
+      // add event listener to the document to listen for clicks outside the list container
+      document.addEventListener("click", handleOutsideClick);
+    } else {
+      listItems.style.visibility = "hidden";
+      filterBtn.style.backgroundColor = "";
+
+      // remove event listener from the document when the list container is hidden
+      document.removeEventListener("click", handleOutsideClick);
+    }
+  });
+
+  function handleOutsideClick(event) {
+    // check if the clicked element is outside the list container and the filter button
+    if (
+      !listItems.contains(event.target) &&
+      !filterBtn.contains(event.target)
+    ) {
+      listItems.style.visibility = "hidden";
+      filterBtn.style.backgroundColor = "";
+
+      // remove event listener from the document when the list container is hidden
+      document.removeEventListener("click", handleOutsideClick);
+    }
+  }
+});

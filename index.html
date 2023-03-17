@@ -78,11 +78,42 @@
         </div>
       </div>
 
-      <div class="nav_login">
-        <div class="nav_button_div">
+      <div class="nav_bottom_buttons">
+        <!-- Account -->
+        <div id="account_symbol" class="nav_button_div">
+          <img
+            src="assets/account_symbol.svg"
+            alt="Account"
+            width="30"
+            height="30"
+          />
+          <p id="nav_header_account"></p>
+          <button
+            class="nav_button"
+            id="account_button"
+            data-text="account-header"
+          ></button>
+        </div>
+        <!-- Fetch -->
+        <div id="fetch_symbol" class="nav_button_div">
+          <img src="assets/fetch_key.svg" alt="Fetch key" />
+          <p id="nav_header_fetch"></p>
+          <button
+            class="nav_button"
+            id="fetch_button"
+            data-text="fetch-header"
+            onclick="generateCombination()"
+          ></button>
+        </div>
+        <!-- Login -->
+        <div id="login_symbol" class="nav_button_div">
           <img src="assets/login_symbol.svg" alt="Log In" />
           <p id="nav_header_login"></p>
-          <button id="login_button"></button>
+          <button
+            class="nav_button"
+            id="login_button"
+            data-text="login-header"
+          ></button>
         </div>
       </div>
     </div>
@@ -109,6 +140,29 @@
         <div class="text-header" id="drink-header">
           <h1 id="page_header_drinks"></h1>
           <h1 id="manager_page_header_drinks"></h1>
+        </div>
+
+        <div class="filter-container">
+          <button id="filter-button">
+            <img src="assets/filter.svg" height="25px" width="25px" />
+            <span>Filter</span>
+          </button>
+          <div id="list-container">
+            <ul class="filter-list">
+              <li>
+                <input type="checkbox" name="item1" value="Item 1" />
+                <p id="text_gluten"></p>
+              </li>
+              <li>
+                <input type="checkbox" name="item2" value="Item 2" />
+                <p id="text_vegan"></p>
+              </li>
+              <li>
+                <input type="checkbox" name="item3" value="Item 3" />
+                <p id="text_alcfree"></p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <!-- JSON content -->
@@ -169,15 +223,15 @@
       </div>
     </div>
 
-    <div class="loginpage">
+    <div class="text-header" id="login-header">
       <div class="LogInBox">
-        <h1>Log In</h1>
+        <h1 id="loginpage_header"></h1>
 
         <form id="login">
           <p>E-mail</p>
           <input type="text" class="mail" id="mail" name="mail" />
 
-          <p>Password</p>
+          <p id="login_password"></p>
           <input
             type="password"
             class="password"
@@ -186,12 +240,39 @@
           />
 
           <input
-            type="submit"
+            type="button"
             class="LogInButton"
-            value="Submit"
-            onclick="login()"
+            value="Log in"
+            id="login-button"
           />
         </form>
+      </div>
+    </div>
+
+    <!--Fetch drinks code page-->
+    <div class="text-header" , id="fetch-header">
+      <div class="fetchbox">
+        <img
+          src="assets/fetch_key.svg"
+          alt="Key"
+          id="key_symbol"
+          width="80"
+          height="80"
+        />
+
+        <h1 id="fetch_header"></h1>
+        <!-- Randomize a 4 number code-->
+        <p id="output"></p>
+        <!-- paragraph to display the output of the JavaScript function -->
+
+        <p id="fetch_prompt"></p>
+      </div>
+    </div>
+
+    <!-- Account page -->
+    <div class="text-header" , id="account-header">
+      <div class="accountbox">
+        <img src="assets/account_symbol.svg" width="80" height="80" />
       </div>
     </div>
   </body>
