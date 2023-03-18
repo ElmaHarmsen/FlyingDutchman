@@ -53,7 +53,7 @@ li {
   margin: 0;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   h1 {
     font-family: "poppins-semibold";
     font-size: 36px;
@@ -91,7 +91,7 @@ li {
   overflow: hidden;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .nav_bar {
     width: 100px;
   }
@@ -136,7 +136,7 @@ li {
   align-items: center;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .nav_button_div {
     width: 100px;
   }
@@ -148,16 +148,17 @@ li {
 /*customer screen deal button visible, manager screen stock button visible */
 #deal_symbol {
   display: flex;
+  /* background-color: var(--white); */
 }
-#stock_symbol {
+#beverage_symbol {
   display: none;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   #deal_symbol {
     display: none;
   }
-  #stock_symbol {
+  #beverage_symbol {
     display: flex;
   }
 }
@@ -172,7 +173,7 @@ li {
   overflow: hidden;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .page_content {
     position: relative;
     left: calc(100px + 32px);
@@ -212,7 +213,7 @@ li {
   display: none;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   #page_header,
   #page_header_beers,
   #page_header_wines,
@@ -239,7 +240,7 @@ li {
   overflow-y: scroll;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .item_grid {
     gap: 24px;
   }
@@ -255,13 +256,15 @@ li {
   background-color: var(--blue);
   border-radius: 20px;
   text-align: center;
+  margin-top: auto;
+  margin-bottom: 5px;
 }
 
 .manager_card_button {
   display: none;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .card_button {
     display: none;
   }
@@ -327,7 +330,7 @@ li {
   background-color: var(--offwhite);
   height: auto;
   border-radius: 10px;
-  width: 160px;
+  width: 155px;
   padding: 12px;
   display: flex;
   flex-flow: column nowrap;
@@ -336,7 +339,7 @@ li {
     rgba(239, 241, 243, 0.33) 0px 3px 6px;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .ButtonItem {
     width: 190px;
   }
@@ -368,7 +371,7 @@ li {
   height: 100vh;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .page_order {
     position: fixed;
     right: 32px;
@@ -400,7 +403,7 @@ li {
 }
 
 /* change viewport later to 2560 */
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .customer_order_header,
   .customer_page_header {
     display: none;
@@ -426,7 +429,7 @@ li {
   display: none;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .order_box {
     width: 600px;
   }
@@ -490,7 +493,7 @@ li {
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .order_button {
     display: none;
   }
@@ -520,7 +523,7 @@ li {
   height: 32px;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .controls_undo-redo {
     display: none;
   }
@@ -563,13 +566,9 @@ span {
 
 /*The div which centers the log in content*/
 .LogInBox {
-  padding-top: 100px;
   display: flex;
-  flex-flow: column;
   align-items: center;
-  display: flex;
   flex-flow: column nowrap;
-  align-items: center;
 }
 
 /*The box where the user types in the email adress*/
@@ -812,7 +811,7 @@ span {
   overflow-y: scroll;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   #dropTarget {
     display: none;
   }
@@ -1024,6 +1023,14 @@ span {
   height: 100%;
 }
 
-#account-header{
+/* #manager-login{
+  position: absolute;
+  top: 0;
   display: flex;
-}
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--white);
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  } */

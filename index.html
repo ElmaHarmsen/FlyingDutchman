@@ -37,13 +37,14 @@
           ></button>
         </div>
         <!--Manager stock-->
-        <div id="stock_symbol" class="nav_button_div">
+        <!-- It gets the beverage ID instead of Stock to be able to access all beverages in JS-->
+        <div id="beverage_symbol" class="nav_button_div">
           <img src="assets/inventory_black_24dp.svg" alt="Stock" />
           <p id="manager_nav_header_stock"></p>
           <button
             class="nav_button"
-            id="stock_button"
-            data-text="deal-header"
+            id="beverage_button"
+            data-text="beverage-header"
           ></button>
         </div>
         <!--Beers-->
@@ -124,6 +125,9 @@
       <div class="title_category">
         <div class="text-header" id="deal-header">
           <h1 id="page_header"></h1>
+        </div>
+        
+        <div class="text-header" id="beverage-header">
           <h1 id="manager_page_header"></h1>
         </div>
 
@@ -150,15 +154,19 @@
           <div id="list-container">
             <ul class="filter-list">
               <li>
-                <input type="checkbox" name="item1" value="Item 1" />
+                <input type="checkbox" class="filter-check" name="gluten" onchange="dispGlutenFree()"/>
                 <p id="text_gluten"></p>
               </li>
               <li>
-                <input type="checkbox" name="item2" value="Item 2" />
+                <input type="checkbox" class="filter-check" name="vegan" onchange="dispVegan()"/>
                 <p id="text_vegan"></p>
               </li>
               <li>
-                <input type="checkbox" name="item3" value="Item 3" />
+                <input type="checkbox" class="filter-check" name="lactose" onchange="dispLactoseFree()"/>
+                <p id="text_lactose"></p>
+              </li>
+              <li>
+                <input type="checkbox" class="filter-check" name="aclfree" />
                 <p id="text_alcfree"></p>
               </li>
             </ul>
@@ -299,12 +307,34 @@
         <img src="assets/qr_code.png" alt="QR code" height="250px" width="250px">
       </div>
 
-    <!--Here will the log out button be-->
-    <button onclick="hej()" id="logout" class="LogInButton"></button>
-     
+    <!--Log out button account page-->
+    <button onclick="logout()" id="logout" class="LogInButton"></button>
     </div>
   </div>
 
+  <!-- <div id="manager-login">
+        <h1 id="loginpage_header_manager"></h1>
+
+        <form id="login-manager">
+          <p>E-mail</p>
+          <input type="text" class="mail" id="mail" name="mail" />
+
+          <p id="login_password_manager"></p>
+          <input
+            type="password"
+            class="password"
+            id="password_manager"
+            name="password"
+          />
+
+          <input
+            type="button"
+            class="LogInButton"
+            value="Log in"
+            id="login-button-manager"
+          />
+        </form>
+  </div> -->
 
 
   </body>

@@ -228,5 +228,16 @@ const dictionaryList = {
     en: "Log out",
     sv: "Logga ut",
     nl: "Uitloggen",
+  },
+
+  loginpage_header_manager:{
+    en: "Log in",
+    sv: "Logga in",
+    nl: "Inloggen",
+  },
+  text_lactose:{
+    en: "Lactose free",
+    sv: "Laktosfritt",
+    nl: "Lactosevrije",
   }
 };

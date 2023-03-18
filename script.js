@@ -83,20 +83,35 @@ document.addEventListener("DOMContentLoaded", () => {
               "beer-category",
               "beverage-category"
             );
-          } else if (beverage.category.includes("Vin")) {
+          } else if (beverage.category.includes("vin")) {
             beverageContainer.classList.add(
               "wine-category",
               "beverage-category"
             );
-          } else if (beverage.category.includes("sprit")) {
+          } else{
             beverageContainer.classList.add(
               "drink-category",
               "beverage-category"
             );
-          } else {
+          }
+          if (beverage.vegan.includes("0")) {
             beverageContainer.classList.add(
-              "deal-category",
-              "beverage-category"
+              "nonvegan-category"
+            );
+          }
+          if (beverage.lactose.includes("1")) {
+            beverageContainer.classList.add(
+              "lactose-category"
+            );
+          }
+          if (beverage.gluten.includes("1")) {
+            beverageContainer.classList.add(
+              "gluten-category"
+            );
+          }
+          if (beverage.deal.includes("1")) {
+            beverageContainer.classList.add(
+              "deal-category"
             );
           }
           //we assign a dynamic id (beverage 'nr' from the json file) to the HTML element called beverageContainer
@@ -141,6 +156,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         // Assign the beverage-items to the variable
         allItems = document.querySelectorAll(".beverage-category");
+
+        //Makes the page click the deal_button on load-up
+        const dealBtn = document.getElementById("offer_button");
+        dealBtn.dispatchEvent(new Event('click'));
       }
     });
 
@@ -274,20 +293,22 @@ document.addEventListener("DOMContentLoaded", () => {
 //otherwise it is hidden. Also it changes the background colour by replacing the
 //"-header" tag with the "_symbol" tag to check for all the ID's of the nav_Symbols.
 document.addEventListener("DOMContentLoaded", () => {
-  let prevNavSymbol = document.getElementById("deal_symbol"); //keep track of the previously selected symbol element
+  let prevNavSymbol = document.getElementById(null); //keep track of the previously selected symbol element
   const navBtns = document.querySelectorAll(".nav_button");
   const HeaderID = document.querySelectorAll(".text-header");
+  const Checkbox = document.querySelectorAll('.filter-check');
 
   navBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const BtnData = document.getElementById(btn.dataset.text);
-
+  
       HeaderID.forEach((text) => {
         if (text === BtnData) {
           text.style.display = "flex";
         } else {
           text.style.display = "none";
         }
+        
       });
 
       //Shows appropriate items
@@ -317,6 +338,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       prevNavSymbol = NavSymbol; //update the previously selected symbol element
+
+      Checkbox.forEach((box) => { //Makes sure the filter checkbox get unchecked when switching tab
+        box.checked = false;
+      });
     });
   });
 });
@@ -349,8 +374,8 @@ document.addEventListener("DOMContentLoaded", () => {
       var mail1 = document.getElementById("mail").value;
       var password1 = document.getElementById("password").value;
 
-      //Our test log in is mail: "hej" and password: "hej"
-      if (mail1 == "hej" && password1 == "hej") {
+      //Our test log in is mail: "vip" and password: "vip"
+      if (mail1 == "vip" && password1 == "vip") {
         // alert("Login successful!");
 
         window.location.replace = "index.html";
@@ -437,7 +462,7 @@ function submitBalance(){
 }
 
 // The function that makes the stored sum stay when the page loads
-window.onload = function hej() {
+window.onload = function balance() {
   var sum = localStorage.getItem("balance");
 
   //
@@ -445,3 +470,84 @@ window.onload = function hej() {
 
 }
 
+//Hides all VIP elements, as well as gets the user to the Deal's menu
+function logout(){
+  const fetchDrink = document.getElementById("fetch_symbol");
+  const loginBtn = document.getElementById("login_symbol");
+  const accBtn = document.getElementById("account_symbol");
+  const accPage = document.getElementById("account-header");
+  const dealBtn = document.getElementById("offer_button");
+
+      window.location.replace = "index.html";
+      fetchDrink.style.visibility = "hidden";
+      loginBtn.style.visibility = "visible";
+      accBtn.style.visibility = "hidden";
+      accPage.style.display = "none";
+
+      dealBtn.dispatchEvent(new Event('click'));
+  }
+
+  function dispVegan(){
+    var checkbox = document.querySelector('input[name="vegan"]');
+    const nonVegan = document.querySelectorAll(".nonvegan-category")
+    
+    if (checkbox.checked) {
+      nonVegan.forEach((item) => {
+        item.style.display = "none";
+      });
+    } else {
+      nonVegan.forEach((item) => {
+        item.style.display = "flex";
+      });
+  }
+  }
+  function dispGlutenFree(){
+    var checkbox = document.querySelector('input[name="gluten"]');
+    const gluten = document.querySelectorAll(".gluten-category")
+    
+    if (checkbox.checked) {
+      gluten.forEach((item) => {
+        item.style.display = "none";
+      });
+    } else {
+      gluten.forEach((item) => {
+        item.style.display = "flex";
+      });
+    }
+  }
+  function dispLactoseFree(){
+    var checkbox = document.querySelector('input[name="lactose"]');
+    const lactose = document.querySelectorAll(".lactose-category")
+    
+    if (checkbox.checked) {
+      lactose.forEach((item) => {
+        item.style.display = "none";
+      });
+    } else {
+      lactose.forEach((item) => {
+        item.style.display = "flex";
+      });
+    }
+  }
+
+//   // function to check if the window size matches the desired size
+// function checkWindowSize() {
+//   // get the current width and height of the window
+//   const windowWidth = window.innerWidth;
+//   const windowHeight = window.innerHeight;
+  
+//   // check if the window size matches the desired size
+//   if (windowWidth >= 1200 && windowHeight >= 1000) {
+//     // show the login screen
+//     document.getElementById('manager-login').style.display = 'block';
+//   } else {
+//     // hide the login screen
+//     document.getElementById('manager-login').style.display = 'none';
+//   }
+// }
+
+// // add a resize event listener to the window
+// window.addEventListener('resize', checkWindowSize);
+
+// // call the function on page load to check the initial window size
+// checkWindowSize();
