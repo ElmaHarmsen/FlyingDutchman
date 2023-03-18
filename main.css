@@ -790,3 +790,15 @@ span {
   height: 100%;
   overflow-y: scroll;
 }
+
+.checkout_page {
+  
+  height: 100vh;
+  background-color: var(--blue);
+  position: absolute;
+  top: 0px;
+  left: 80px;
+  right: 330px;
+  z-index: 2;
+  
+}

@@ -310,3 +310,8 @@ function login() {
     }
   } 
 }
+
+function openCheckout(){
+  var box = document.querySelector('.checkout_page');
+  box.style.zIndex = "2";
+}
