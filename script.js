@@ -416,3 +416,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+// Add balance
+function submitBalance(){
+  var inputNr = parseInt(document.getElementById("input_number").value);
+
+  //Works only when the input is a number
+  if (isNaN(inputNr)) {
+    return;
+  }
+
+  //Saves the total balance in the variable "balance"
+  var balance = parseInt(localStorage.getItem("balance") || 0) + inputNr;
+
+  //Writing out the sum in the HTML
+  document.getElementById("totalSum").innerHTML = balance + " SEK";
+
+  //The balance is saved in the local storage
+  localStorage.setItem("balance", balance);
+}
+
+// The function that makes the stored sum stay when the page loads
+window.onload = function hej() {
+  var sum = localStorage.getItem("balance");
+
+  //
+    document.getElementById("totalSum").innerHTML = parseInt(sum) + " SEK";
+
+}
+

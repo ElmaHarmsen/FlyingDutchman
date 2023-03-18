@@ -592,14 +592,15 @@ span {
 
 /* The Log In Button whihch you press to commit your login*/
 .LogInButton {
-  background-color: var(--darkblue);
-  width: 200px;
-  height: 50px;
-  border-radius: 10px;
-  box-shadow: 5px 5px var(--mildgray);
-  color: var(--white);
-  text-align: center;
-  margin: 30px auto;
+  border: none;
+   font-family: "poppins-semibold";
+   font-size: 16px;
+   color: var(--white);
+   width: 220px;
+   margin: 24px auto;
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 /* This is the div for the whole login page */
@@ -863,7 +864,7 @@ span {
   z-index: 1;
   left: 80px;
   top: 0;
-  width: 92.1875%;
+  width: 60%;
   height: 100%;
   display: none;
   justify-content: center;
@@ -951,4 +952,78 @@ span {
 .wine-category,
 .drink-category {
   display: none;
+}
+
+.qr_submit{ /*The gray box where the user can type in an amount to add to their balance, press sumbit, and see the qr code*/
+  background-color: var(--offwhite);
+  height: 300px;
+  width: 500px;
+  display: flex;
+  align-items: center; /* center child divs vertically */
+  justify-content: center;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+#balance{
+  font-size: 24px;
+  padding-top: 30px;
+}
+
+#totalSum{
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
+.balance_div{
+  padding-left: 20px;
+}
+
+#add_balance{
+  font-size: 24px;
+}
+
+#submit_button{
+  border: none;
+    font-family: "poppins-semibold";
+    font-size: 16px;
+    color: var(--white);
+    background-color: var(--blue);
+    height: 50px;
+    width: 220px;
+    margin: 24px auto;
+    border-radius: 10px;
+    box-shadow:  rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(239, 241, 243, 0.33) 0px 3px 6px;
+}
+
+ #input_number{
+  background-color: var(--white);
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 5px var(--mildgray);
+  margin-top: 10px;
+ }
+
+#balance_instructions{
+  width: 500px;
+}
+
+.page_order_opacity {
+  position: fixed;
+  right: 24px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: var(--white);
+  opacity: 0.5;
+}
+
+.accountbox{
+  height: 100%;
+}
+
+#account-header{
+  display: flex;
 }

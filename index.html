@@ -269,11 +269,43 @@
       </div>
     </div>
 
-    <!-- Account page -->
-    <div class="text-header" , id="account-header">
-      <div class="accountbox">
-        <img src="assets/account_symbol.svg" width="80" height="80" />
+   <!-- Account page -->
+    
+   <div class="text-header", id="account-header">
+    <div class="accountbox">
+
+      
+      <h1 id="account_header">Account Page</h1>
+
+      <!-- <img src="assets/account_symbol.svg" width="80" height="80"> -->
+
+      <p id="balance">Balance:</p>
+      <p id="totalSum"></p>
+
+      <p id="balance_instructions"> </p>
+
+
+      <div class="qr_submit">
+
+        <div class="balance_div">
+        <p id="add_balance"></p>
+        <form>
+        <input type="text" id="input_number">
+        <button type="button" class="order_button" onclick="submitBalance()">
+          <h2 id="submitbutton"></h2>
+        </button>
+        </form>
+        </div>
+        <img src="assets/qr_code.png" alt="QR code" height="250px" width="250px">
       </div>
+
+    <!--Here will the log out button be-->
+    <button onclick="hej()" id="logout" class="LogInButton"></button>
+     
     </div>
+  </div>
+
+
+
   </body>
 </html>
