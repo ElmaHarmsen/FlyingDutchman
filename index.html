@@ -150,15 +150,19 @@
           <div id="list-container">
             <ul class="filter-list">
               <li>
-                <input type="checkbox" name="item1" value="Item 1" />
+                <input type="checkbox" class="filter-check" name="gluten" onchange="dispGlutenFree()"/>
                 <p id="text_gluten"></p>
               </li>
               <li>
-                <input type="checkbox" name="item2" value="Item 2" />
+                <input type="checkbox" class="filter-check" name="vegan" onchange="dispVegan()"/>
                 <p id="text_vegan"></p>
               </li>
               <li>
-                <input type="checkbox" name="item3" value="Item 3" />
+                <input type="checkbox" class="filter-check" name="lactose" onchange="dispLactoseFree()"/>
+                <p id="text_lactose"></p>
+              </li>
+              <li>
+                <input type="checkbox" class="filter-check" name="aclfree" />
                 <p id="text_alcfree"></p>
               </li>
             </ul>

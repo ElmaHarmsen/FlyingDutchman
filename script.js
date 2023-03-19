@@ -99,6 +99,28 @@ document.addEventListener("DOMContentLoaded", () => {
               "beverage-category"
             );
           }
+          //Checks the items if they are special item
+          if (beverage.vegan.includes("0")) {
+            beverageContainer.classList.add(
+              "nonvegan-category"
+            );
+          }
+          if (beverage.lactose.includes("1")) {
+            beverageContainer.classList.add(
+              "lactose-category"
+            );
+          }
+          if (beverage.gluten.includes("1")) {
+            beverageContainer.classList.add(
+              "gluten-category"
+            );
+          }
+          if (beverage.deal.includes("1")) {
+            beverageContainer.classList.add(
+              "deal-category"
+            );
+          }
+          
           //we assign a dynamic id (beverage 'nr' from the json file) to the HTML element called beverageContainer
           //the ` ` mean it's a dynamic string, so we say #beverageItem_nr where nr gets fetched from the json file
           beverageContainer.id = `beverageItem_${beverage.nr}`;
@@ -141,6 +163,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         // Assign the beverage-items to the variable
         allItems = document.querySelectorAll(".beverage-category");
+        
+        //Makes the page click the deal_button on load-up
+        const dealBtn = document.getElementById("offer_button");
+        dealBtn.dispatchEvent(new Event('click'));
       }
     });
 
@@ -274,9 +300,10 @@ document.addEventListener("DOMContentLoaded", () => {
 //otherwise it is hidden. Also it changes the background colour by replacing the
 //"-header" tag with the "_symbol" tag to check for all the ID's of the nav_Symbols.
 document.addEventListener("DOMContentLoaded", () => {
-  let prevNavSymbol = document.getElementById("deal_symbol"); //keep track of the previously selected symbol element
+  let prevNavSymbol = document.getElementById(null); //keep track of the previously selected symbol element
   const navBtns = document.querySelectorAll(".nav_button");
   const HeaderID = document.querySelectorAll(".text-header");
+  const Checkbox = document.querySelectorAll('.filter-check');
 
   navBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -317,6 +344,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       prevNavSymbol = NavSymbol; //update the previously selected symbol element
+      Checkbox.forEach((box) => { //Makes sure the filter checkbox get unchecked when switching tab
+        box.checked = false;
+      });
     });
   });
 });
