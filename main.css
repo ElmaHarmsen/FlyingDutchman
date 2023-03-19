@@ -952,3 +952,106 @@ span {
 .drink-category {
   display: none;
 }
+
+.qr_submit{ /*The gray box where the user can type in an amount to add to their balance, press sumbit, and see the qr code*/
+  background-color: var(--offwhite);
+  height: 300px;
+  width: 500px;
+  display: flex;
+  align-items: center; /* center child divs vertically */
+  justify-content: center;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+#balance{
+  font-size: 24px;
+  padding-top: 30px;
+}
+
+#totalSum{
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
+.balance_div{
+  padding-left: 20px;
+}
+
+#add_balance{
+  font-size: 24px;
+}
+
+#submit_button{
+  border: none;
+    font-family: "poppins-semibold";
+    font-size: 16px;
+    color: var(--white);
+    background-color: var(--blue);
+    height: 50px;
+    width: 220px;
+    margin: 24px auto;
+    border-radius: 10px;
+    box-shadow:  rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(239, 241, 243, 0.33) 0px 3px 6px;
+}
+
+ #input_number{
+  background-color: var(--white);
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 5px var(--mildgray);
+  margin-top: 10px;
+ }
+
+#balance_instructions{
+  width: 500px;
+}
+
+.page_order_opacity {
+  position: fixed;
+  right: 24px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: var(--white);
+  opacity: 0.5;
+}
+
+.accountbox{
+  height: 100%;
+}
+
+#manager-login{
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+  width: calc(100vw - 100px);
+  height: 100vh;
+  background-color: var(--white);
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 10;
+}
+#login-manager{
+  height: 50vh;
+  width: 500px;
+}
+
+#nav_button_blocker{
+  display: none;
+  position: absolute;
+  width: 100px;
+  height: 165px;
+  background-color: var(--offwhite);
+  bottom: 0;
+}
+
+#logout_symbol{
+  position: absolute;
+  bottom: 24px;
+}

@@ -324,11 +324,13 @@ document.addEventListener("DOMContentLoaded", () => {
 // These are the functions that recieves the users input from the log in page
 //In the function validateForm() the strings from the login input are put in two vaiables, one for mail and one for password.
 function validateForm() {
-  var mail = document.getElementById("mail").value;
-  var password = document.getElementById("password").value;
+  var mail1 = document.getElementById("mail").value;
+  var password1 = document.getElementById("password").value;
+  var mail2 = document.getElementById("mail-manager").value;
+  var password2 = document.getElementById("password-manager").value;
 
   //This if statement create a pop up if the fields are empty, since the user has to fill in something in the fields.
-  if (mail == "" || password == "") {
+  if ((mail1 == "" || password1 == "") && (mail2 == "" || password2 == "")) {
     alert("Please fill in all fields.");
     return false;
   }
@@ -337,6 +339,7 @@ function validateForm() {
 
 //This is the function that decides if the user can be logged in or not. This function is runned if the validateForm
 //function is true.
+let manager = 0; //global variable to check if you are manager or not
 document.addEventListener("DOMContentLoaded", () => {
   const fetchDrink = document.getElementById("fetch_symbol");
   const loginPage = document.getElementById("login-header");
@@ -348,9 +351,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (validateForm()) {
       var mail1 = document.getElementById("mail").value;
       var password1 = document.getElementById("password").value;
+      var mail2 = document.getElementById("mail-manager").value;
+      var password2 = document.getElementById("password-manager").value;
+      
 
-      //Our test log in is mail: "hej" and password: "hej"
-      if (mail1 == "hej" && password1 == "hej") {
+      //Our test log in for VIP is mail: "vip" and password: "vip"
+      if (mail1 == "vip" && password1 == "vip") {
         // alert("Login successful!");
 
         window.location.replace = "index.html";
@@ -359,23 +365,32 @@ document.addEventListener("DOMContentLoaded", () => {
         loginBtn.style.visibility = "hidden";
         accBtn.style.visibility = "visible";
         accPage.style.display = "flex";
-      } else {
+      }
+      //Our test log in for Bartender is mail: "boss" and password: "boss"
+      else if(mail1 == "boss" && password1 == "boss" || mail2 == "boss" && password2 == "boss"){
+        document.getElementById('manager-login').style.display = 'none';
+        loginPage.style.display = "none";
+        document.getElementById('nav_button_blocker').style.display = 'flex';
+        checkWindowSize()
+        manager = 1;
+      }else {
         alert("Invalid username or password.");
       }
     }
   }
   document.getElementById("login-button").addEventListener("click", login);
+  document.getElementById("login_button_manager").addEventListener("click", login);
 });
 
-// Generate a combination of four randomized numbers
+// Generate a combination of four randomized numbers.
 
 function generateCombination() {
-  let num1 = Math.floor(Math.random() * 10); // generate a random integer between 0 and 9
+  let num1 = Math.floor(Math.random() * 10); // generate a random integer between 0 and 9.
   let num2 = Math.floor(Math.random() * 10);
   let num3 = Math.floor(Math.random() * 10);
   let num4 = Math.floor(Math.random() * 10);
 
-  // Combine the numbers into a string
+  // Combine the numbers into a string.
   let combination = `${num1}${num2}${num3}${num4}`;
 
   document.getElementById("output").innerHTML = combination;
@@ -391,19 +406,19 @@ document.addEventListener("DOMContentLoaded", () => {
       listItems.style.visibility = "visible";
       filterBtn.style.backgroundColor = "var(--offwhite)";
 
-      // add event listener to the document to listen for clicks outside the list container
+      // add event listener to the document to listen for clicks outside the list container.
       document.addEventListener("click", handleOutsideClick);
     } else {
       listItems.style.visibility = "hidden";
       filterBtn.style.backgroundColor = "";
 
-      // remove event listener from the document when the list container is hidden
+      // remove event listener from the document when the list container is hidden.
       document.removeEventListener("click", handleOutsideClick);
     }
   });
 
   function handleOutsideClick(event) {
-    // check if the clicked element is outside the list container and the filter button
+    // check if the clicked element is outside the list container and the filter button.
     if (
       !listItems.contains(event.target) &&
       !filterBtn.contains(event.target)
@@ -411,8 +426,140 @@ document.addEventListener("DOMContentLoaded", () => {
       listItems.style.visibility = "hidden";
       filterBtn.style.backgroundColor = "";
 
-      // remove event listener from the document when the list container is hidden
+      // remove event listener from the document when the list container is hidden.
       document.removeEventListener("click", handleOutsideClick);
     }
   }
 });
+
+// Add balance
+function submitBalance(){
+  var inputNr = parseInt(document.getElementById("input_number").value);
+
+  //Works only when the input is a number.
+  if (isNaN(inputNr)) {
+    return;
+  }
+
+  //Saves the total balance in the variable "balance"
+  var balance = parseInt(localStorage.getItem("balance") || 0) + inputNr;
+
+  //Writing out the sum in the HTML
+  document.getElementById("totalSum").innerHTML = balance + " SEK";
+
+  //The balance is saved in the local storage
+  localStorage.setItem("balance", balance);
+}
+
+// The function that makes the stored sum stay when the page loads.
+window.onload = function balance() {
+  var sum = localStorage.getItem("balance");
+
+  //
+    document.getElementById("totalSum").innerHTML = parseInt(sum) + " SEK";
+
+}
+
+//Hides all VIP elements, as well as gets the user to the Deal's menu.
+function logout(){
+  const fetchDrink = document.getElementById("fetch_symbol");
+  const loginBtn = document.getElementById("login_symbol");
+  const accBtn = document.getElementById("account_symbol");
+  const accPage = document.getElementById("account-header");
+  const dealBtn = document.getElementById("offer_button");
+
+      window.location.replace = "index.html";
+      fetchDrink.style.visibility = "hidden";
+      loginBtn.style.visibility = "visible";
+      accBtn.style.visibility = "hidden";
+      accPage.style.display = "none";
+
+      dealBtn.dispatchEvent(new Event('click'));
+  }
+
+  function dispVegan(){
+    var checkbox = document.querySelector('input[name="vegan"]');
+    const nonVegan = document.querySelectorAll(".nonvegan-category")
+    
+    if (checkbox.checked) {
+      nonVegan.forEach((item) => {
+        item.style.display = "none";
+      });
+    } else {
+      nonVegan.forEach((item) => {
+        item.style.display = "flex";
+      });
+  }
+  }
+  function dispGlutenFree(){
+    var checkbox = document.querySelector('input[name="gluten"]');
+    const gluten = document.querySelectorAll(".gluten-category")
+    
+    if (checkbox.checked) {
+      gluten.forEach((item) => {
+        item.style.display = "none";
+      });
+    } else {
+      gluten.forEach((item) => {
+        item.style.display = "flex";
+      });
+    }
+  }
+  function dispLactoseFree(){
+    var checkbox = document.querySelector('input[name="lactose"]');
+    const lactose = document.querySelectorAll(".lactose-category")
+    
+    if (checkbox.checked) {
+      lactose.forEach((item) => {
+        item.style.display = "none";
+      });
+    } else {
+      lactose.forEach((item) => {
+        item.style.display = "flex";
+      });
+    }
+  }
+
+  // function to check window size.
+function checkWindowSize() {
+  //get the current width and height of the window
+  const windowWidth = window.innerWidth;
+  
+  //check if the window size should trigger manager mode. If it does a login screen aprears so not everyone has access to the manager mode just by changing screen size.
+  if (windowWidth >= 1200 && manager === 0) {
+    //show the login screen and hides buttons that shouldn't be viewable in this screen size.
+    document.getElementById('manager-login').style.display = 'flex';
+    document.getElementById('nav_button_blocker').style.display = 'flex';
+    document.getElementById('nav_button_blocker').style.width = '100px';
+    document.getElementById('logout_symbol').style.display = 'none';
+
+  } else if(windowWidth >= 1200 && manager === 1){
+    //Shows the logout button if you are logged in as manager
+    document.getElementById('nav_button_blocker').style.width = '100px';
+    document.getElementById('logout_symbol').style.display = 'flex';
+  }else{
+    //hide the login screen and shows the logout button for manager, otherwise shows standard buttons.
+    document.getElementById('manager-login').style.display = 'none';
+    document.getElementById('nav_button_blocker').style.width = '80px';
+    document.getElementById('logout_symbol').style.display = 'flex';
+    if(manager === 0){
+      document.getElementById('nav_button_blocker').style.display = 'none';
+    }
+  }
+}
+
+// add a resize event listener to the window
+window.addEventListener('resize', checkWindowSize);
+
+// call the function on page load to check the initial window size
+document.addEventListener("DOMContentLoaded", function() {
+  checkWindowSize();
+});
+
+//Logout function for manager screen.
+function manager_logout(){
+  if (window.confirm("Are you sure you want to logout as Manager/Bartender?")) {
+    manager = 0;
+    checkWindowSize();
+  }
+}

@@ -275,5 +275,39 @@
         <img src="assets/account_symbol.svg" width="80" height="80" />
       </div>
     </div>
+  </div>
+
+  <div id="manager-login">
+        <form id="login-manager">
+          <h1 id="loginpage_header_manager"></h1>
+          <p>E-mail</p>
+          <input type="text" class="mail" id="mail-manager" name="mail-manager" />
+          <p id="login_password_manager"></p>
+          <input
+            type="password"
+            class="password" 
+            id="password-manager"
+            name="password"/>
+          <input
+            type="button"
+            class="LogInButton"
+            value="Log in"
+            id="login_button_manager"/>
+        </form>
+    </div>
+    <!-- This div will block the bottom buttons of the nav bar that arn't in use in manager mode -->
+    <div id="nav_button_blocker">
+        <!-- Log out button for manager -->
+        <div id="logout_symbol" class="nav_button_div">
+          <img src="assets/logout_symbol.svg" alt="Log Out" />
+          <p id="nav_header_logout"></p>
+          <button
+            class="nav_button"
+            id="logout_button"
+            onclick="manager_logout()"
+          ></button>
+        </div>
+    </div>
+
   </body>
 </html>

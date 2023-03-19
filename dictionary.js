@@ -199,4 +199,55 @@ const dictionaryList = {
     sv: "Betalade separat",
     nl: "Apart betaald",
   },
+  login_password_manager: {
+    en: "Password",
+    sv: "Lösenord",
+    nl: "Wachtwoord",
+  },
+  loginpage_header_manager:{
+    en: "Log in",
+    sv: "Logga in",
+    nl: "Inloggen",
+  },
+  nav_header_logout:{
+    en: "Log out",
+    sv: "Logga ut",
+    nl: "Utloggen",
+  },
+  //account page
+  account_header:{
+      en: "Your account",
+      sv: "Ditt konto",
+      nl: "Jouw rekening",
+  },
+  balance:{
+    en: "Balance:",
+    sv: "Saldo:",
+    nl: "Saldo",
+  },
+  balance_instructions:{
+    en: "To add balance to your account, type the amount below, press submit and scan the barcode to recieve the payment oprions.",
+    sv: "För att fylla på pengar på ditt konto, skriv in beloppet nedan, tryck på ladda upp och scanna QR-koden för att få betalningsalternativen.",
+    nl: "Voeg saldo toe aan uw account, schrijf het bedrag hieronder, druk op verzenden en vervolgens scan de streepjescode om de betalingsopties te ontvangen.",
+  },
+  add_balance:{
+    en: "Add balance",
+    sv: "Fyll på saldo",
+    nl: "Saldo toevoegen",
+  },
+  submitbutton:{
+    en: "Submit",
+    sv: "Ladda upp",
+    nl: "Bevestigen",
+  },
+  logout:{
+    en: "Log out",
+    sv: "Logga ut",
+    nl: "Uitloggen",
+  },
+  text_lactose:{
+    en: "Lactose free",
+    sv: "Laktosfritt",
+    nl: "Lactosevrije",
+  }
 };
