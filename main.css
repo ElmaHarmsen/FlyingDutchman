@@ -30,6 +30,7 @@
 body {
   margin: 0;
   overflow: hidden;
+  background-color: var(--white);
 }
 
 h1 {
@@ -81,9 +82,9 @@ li {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  gap: 32px;
+  /* gap: -20px; */
   width: 80px;
-  height: 100%;
+  height: 100vh;
   background-color: var(--offwhite);
   position: fixed;
   top: 0;
@@ -108,6 +109,7 @@ li {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  transform: translateY(-30px);
 }
 
 .nav_bottom_buttons {
@@ -230,7 +232,7 @@ li {
 
 .item_grid {
   align-content: flex-start;
-  background-color: white;
+  background-color: var(--white);
   height: calc(100vh - 97px - 32px);
   border-radius: 10px;
   display: flex;
@@ -530,11 +532,6 @@ li {
   margin: 0;
 }
 
-.Item {
-  margin-left: 25px;
-  position: relative;
-}
-
 button {
   border: none;
   background-color: transparent;
@@ -557,12 +554,10 @@ hr {
   height: 1px;
   width: 300px;
 }
-span {
-  font-family: "poppins-regular";
-}
 
 /*The div which centers the log in content*/
 .LogInBox {
+
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -629,15 +624,6 @@ span {
   font-size: 16px;
   padding-left: 10px;
 }
-.Item {
-  margin-left: 25px;
-  position: relative;
-}
-
-button {
-  border: none;
-  background-color: transparent;
-}
 
 /*control buttons for items in orderbox*/
 .order_controls {
@@ -646,22 +632,6 @@ button {
   float: right;
   padding-right: 15px;
   padding-bottom: 15px;
-}
-
-hr {
-  transform: translateX(-25px);
-  border: none;
-  border-top: 1px dashed var(--mildgray);
-  background-color: var(--offwhite);
-  height: 1px;
-  width: 300px;
-}
-span {
-  font-family: "poppins-regular";
-}
-
-.LogInBox {
-  margin: 0 auto;
 }
 
 .ItemNameOrder {
@@ -678,11 +648,6 @@ span {
 .Item {
   margin-left: 25px;
   position: relative;
-}
-
-button {
-  border: none;
-  background-color: transparent;
 }
 
 /*control buttons for items in orderbox*/
@@ -785,21 +750,10 @@ button {
   width: auto;
 }
 
-hr {
-  transform: translateX(-25px);
-  border: none;
-  border-top: 1px dashed var(--mildgray);
-  background-color: var(--offwhite);
-  height: 1px;
-  width: 300px;
-}
 span {
   font-family: "poppins-regular";
 }
 
-.LogInBox {
-  margin: 0 auto;
-}
 #login {
   display: flex;
   flex-flow: column wrap;
@@ -1053,4 +1007,25 @@ span {
 #logout_symbol{
   position: absolute;
   bottom: 24px;
+}
+
+#lang_buttons{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  z-index: 4;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+#sv{
+  height: 35px;
+  width: 60px;
+}
+#en{
+  height: 30px;
+}
+#nl{
+  height: 35px;
 }
