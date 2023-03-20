@@ -315,3 +315,25 @@ function openCheckout(){
   var box = document.querySelector('.checkout_page');
   box.style.zIndex = "2";
 }
+
+// Open the qr code when choosing to pay together 
+var payTo = document.getElementById("pay_together");
+var qrBox = document.getElementById("payment_box");
+
+payTo.addEventListener("click", function() {
+  if (qrBox.style.display === "none") {
+    qrBox.style.display = "block";
+  } else {
+    qrBox.style.display = "none";
+  }
+});
+
+// Split bill function
+function divide() {
+  var guests = document.getElementById("split").value;
+  if(split > 1 && split < 20) {
+    separate_sum = __ / split;
+  }
+}
+
+

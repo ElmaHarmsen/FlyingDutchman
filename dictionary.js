@@ -87,5 +87,20 @@ const dictionaryList = {
     en: "Check out",
     sv: "Kassa",
     nl: "Uitchecken"
+  },
+  pay_instructions: {
+    en: "Choose how you would like to pay.",
+    sv: "Välj hur du vill betala.",
+    nl: "Kies hoeveel je wilt betalen",
+  },
+  pay_together: {
+    en: "Pay together",
+    sv: "Betala tillsamamns",
+    nl: "Apart betalen",
+  },
+  pay_separately: {
+    en: "Pay separately",
+    sv: "Betala separat",
+    nl: "Samen betalen",
   }
 };

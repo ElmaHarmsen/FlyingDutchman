@@ -794,11 +794,76 @@ span {
 .checkout_page {
   
   height: 100vh;
-  background-color: var(--blue);
+  background-color: var(--white);
   position: absolute;
   top: 0px;
-  left: 80px;
+  left: 85px;
   right: 330px;
   z-index: 2;
   
+}
+
+#pay_together{
+  border: none;
+     font-family: "poppins-semibold";
+     font-size: 16px;
+     color: var(--white);
+     background-color: var(--blue);
+     height: 50px;
+     width: 220px;
+     /* margin: 24px auto; */
+     border-radius: 10px;
+     box-shadow:  rgba(0, 0, 0, 0.16) 0px 3px 6px,
+     rgba(239, 241, 243, 0.33) 0px 3px 6px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     
+     
+}
+
+#pay_separately{
+  border: none;
+     font-family: "poppins-semibold";
+     font-size: 16px;
+     color: var(--white);
+     background-color: var(--darkblue);
+     height: 50px;
+     width: 220px;
+     /* margin: 24px auto; */
+     border-radius: 10px;
+     box-shadow:  rgba(0, 0, 0, 0.16) 0px 3px 6px,
+     rgba(239, 241, 243, 0.33) 0px 3px 6px;
+     display: flex;
+     justify-content: center;
+     align-items: center;   
+}
+
+#payment_box{
+  background-color: var(--offwhite);
+  height: 500px;
+  width: 500px;
+  border-radius: 10px;
+  /* display: flex;
+  justify-content: center; */
+  display: none;
+  
+}
+
+#payment_box_split{
+  background-color: var(--offwhite);
+  height: 500px;
+  width: 500px;
+  border-radius: 10px;
+  /* display: flex;
+  justify-content: center; */
+  /* display: none; */
+}
+
+#pay_option_buttons{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  flex-flow: row;
+  display: flex;
+  gap: 20px;
 }
