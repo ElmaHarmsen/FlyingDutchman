@@ -317,23 +317,43 @@ function openCheckout(){
 }
 
 // Open the qr code when choosing to pay together 
+
+document.addEventListener("DOMContentLoaded", () => {
+
 var payTo = document.getElementById("pay_together");
 var qrBox = document.getElementById("payment_box");
+var paySplit = document.getElementById("payment_box_split");
+var splitBtn = document.getElementById("pay_separately");
 
-payTo.addEventListener("click", function() {
+payTo.addEventListener("click", () => {
   if (qrBox.style.display === "none") {
-    qrBox.style.display = "block";
+    qrBox.style.display = "flex";
   } else {
     qrBox.style.display = "none";
   }
 });
 
+ splitBtn.addEventListener("click", () => {
+  if (paySplit.style.display === "none") {
+    paySplit.style.display = "flex";
+  } else {
+    paySplit.style.display = "none";
+  }
+});
+ });
+ 
 // Split bill function
 function divide() {
-  var guests = document.getElementById("split").value;
-  if(split > 1 && split < 20) {
-    separate_sum = __ / split;
+  var separate_sum = null;
+  var guests = parseInt(document.getElementById("split").value);
+  if(guests > 1 && guests < 20) {
+    separate_sum = 100 / guests;
+    document.getElementById("splitsum").innerHTML = separate_sum;
   }
+
+  
 }
+
+
 
 

@@ -857,7 +857,7 @@ span {
   border-radius: 10px;
   /* display: flex;
   justify-content: center; */
-  /* display: none; */
+  display: none;
 }
 
 #pay_option_buttons{
